@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "921101427915",
+    "project_id": "orchids-emporium",
+    "storage_bucket": "orchids-emporium.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921101427915:android:7526d6b1c6b6c350c6674e",
+        "android_client_info": {
+          "package_name": "com.example.orchids_emporium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921101427915-dhm6mvdauktvnu2k8j8u3j0b5nv8b5bl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orchids_emporium",
+            "certificate_hash": "4832426aaf88712d0ba48e58b5cbe76f5daa701a"
+          }
+        },
+        {
+          "client_id": "921101427915-0bs6rvqr48hl1tuq0n40lfn8o4em8cs7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw4jy15rxYeKGebYtfIQNTOKOJvGPhmC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921101427915-0bs6rvqr48hl1tuq0n40lfn8o4em8cs7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

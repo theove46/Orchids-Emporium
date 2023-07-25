@@ -24,10 +24,11 @@ class CustomTextStyle extends StatelessWidget {
     return Text(
       text,
       style: GoogleFonts.ubuntu(
-          fontSize: size,
-          color: color,
-          fontWeight: fontWeight,
-          letterSpacing: letterSpacing),
+        fontSize: size,
+        color: color,
+        fontWeight: fontWeight,
+        letterSpacing: letterSpacing,
+      ),
       textAlign: textAlign,
     );
   }

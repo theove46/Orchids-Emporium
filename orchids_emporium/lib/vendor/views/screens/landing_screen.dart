@@ -29,7 +29,11 @@ class _LandingScreenState extends State<LandingScreen> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text("Loading");
+            return const Center(
+              child: CircularProgressIndicator(
+                color: Palette.greenColor,
+              ),
+            );
           }
 
           if (!snapshot.data!.exists) {

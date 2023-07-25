@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/profile_screen_user.dart';
 
 class WelcomeTextWidget extends StatelessWidget {
   const WelcomeTextWidget({
@@ -11,34 +12,31 @@ class WelcomeTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top + 10,
+          //top: MediaQuery.of(context).padding.top + 10,
           bottom: 10,
           left: 14,
           right: 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const CustomTextStyle(
-                text: 'Bringing Nature to',
-                size: 28,
-                fontWeight: FontWeight.bold,
-                color: Palette.greenColor,
-              ),
-              Container(
-                child: const Icon(
-                  Icons.shopping_cart_sharp,
-                  color: Palette.greenColor,
-                  size: 30,
-                ),
-              ),
-            ],
-          ),
-          const CustomTextStyle(
+          // IconButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) {
+          //         return UserProfileScreen();
+          //       }),
+          //     );
+          //   },
+          //   icon: const Icon(
+          //     Icons.person,
+          //     color: Palette.greenColor,
+          //     size: 30,
+          //   ),
+          // ),
+          CustomTextStyle(
             text: 'Your Doorstep',
             size: 36,
             fontWeight: FontWeight.bold,

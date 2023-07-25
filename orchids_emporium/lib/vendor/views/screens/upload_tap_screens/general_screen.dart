@@ -54,217 +54,172 @@ class _GeneralScreenState extends State<GeneralScreen>
     super.build(context);
     final ProductProvider _productProvider =
         Provider.of<ProductProvider>(context);
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextFormField(
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return 'Enter product name';
-                  } else {
-                    return null;
-                  }
-                }),
-                onChanged: (value) {
-                  _productProvider.getFromData(productName: value);
-                },
-                cursorColor: Palette.greenColor,
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  fillColor: Palette.whiteColor,
-                  filled: true,
-                  hintText: 'Enter product name',
-                  hintStyle: GoogleFonts.ubuntu(
-                    fontSize: 16,
-                    color: Palette.greyColor,
-                  ),
-                ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          TextFormField(
+            validator: ((value) {
+              if (value!.isEmpty) {
+                return 'Enter product name';
+              } else {
+                return null;
+              }
+            }),
+            onChanged: (value) {
+              _productProvider.getFromData(productName: value);
+            },
+            cursorColor: Palette.greenColor,
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
               ),
-              const SizedBox(
-                height: 10,
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
               ),
-              TextFormField(
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return 'Enter product price';
-                  } else {
-                    return null;
-                  }
-                }),
-                onChanged: (value) {
-                  _productProvider.getFromData(
-                    productPrice: double.parse(value),
-                  );
-                },
-                cursorColor: Palette.greenColor,
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  fillColor: Palette.whiteColor,
-                  filled: true,
-                  hintText: 'Enter product price',
-                  hintStyle: GoogleFonts.ubuntu(
-                    fontSize: 16,
-                    color: Palette.greyColor,
-                  ),
-                ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Enter product name',
+              hintStyle: GoogleFonts.ubuntu(
+                fontSize: 16,
+                color: Palette.greyColor,
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return 'Enter product quantity';
-                  } else {
-                    return null;
-                  }
-                }),
-                onChanged: (value) {
-                  _productProvider.getFromData(
-                    quantity: int.parse(value),
-                  );
-                },
-                cursorColor: Palette.greenColor,
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  fillColor: Palette.whiteColor,
-                  filled: true,
-                  hintText: 'Enter product quantity',
-                  hintStyle: GoogleFonts.ubuntu(
-                    fontSize: 16,
-                    color: Palette.greyColor,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              DropdownButtonFormField(
-                decoration: const InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  fillColor: Palette.whiteColor,
-                  filled: true,
-                  hintText: 'Select category',
-                  hintStyle: TextStyle(
-                    fontSize: 16,
-                    color: Palette.greyColor,
-                  ),
-                ),
-                items: _catagoryList.map<DropdownMenuItem<String>>((e) {
-                  return DropdownMenuItem(
-                    value: e,
-                    child: Text(e),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _productProvider.getFromData(category: value);
-                  });
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return 'Enter product description';
-                  } else {
-                    return null;
-                  }
-                }),
-                onChanged: (value) {
-                  _productProvider.getFromData(
-                    description: value,
-                  );
-                },
-                maxLines: 10,
-                cursorColor: Palette.greenColor,
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
-                  ),
-                  fillColor: Palette.whiteColor,
-                  filled: true,
-                  hintText: 'Enter product description',
-                  hintStyle: GoogleFonts.ubuntu(
-                    fontSize: 16,
-                    color: Palette.greyColor,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () async {
-                      await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime(5000),
-                        builder: (BuildContext context, Widget? child) {
-                          return Theme(
-                            data: ThemeData.light().copyWith(
-                              colorScheme: const ColorScheme.light().copyWith(
-                                primary:
-                                    Palette.greenColor, // Set the primary color
-                              ),
-                            ),
-                            child: child!,
-                          );
-                        },
-                      ).then(
-                        (value) {
-                          setState(() {
-                            _productProvider.getFromData(scheduleDate: value);
-                          });
-                        },
-                      );
-                    },
-                    child: const CustomTextStyle(
-                      text: 'Schedule',
-                      color: Palette.greenColor,
-                    ),
-                  ),
-                  if (_productProvider.productData['scheduleDate'] != null)
-                    CustomTextStyle(
-                      text: formatedDate(
-                          _productProvider.productData['scheduleDate']),
-                    ),
-                ],
-              ),
-            ],
+            ),
           ),
-        ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            validator: ((value) {
+              if (value!.isEmpty) {
+                return 'Enter product price';
+              } else {
+                return null;
+              }
+            }),
+            onChanged: (value) {
+              _productProvider.getFromData(
+                productPrice: double.parse(value),
+              );
+            },
+            cursorColor: Palette.greenColor,
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Enter product price',
+              hintStyle: GoogleFonts.ubuntu(
+                fontSize: 16,
+                color: Palette.greyColor,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            validator: ((value) {
+              if (value!.isEmpty) {
+                return 'Enter product quantity';
+              } else {
+                return null;
+              }
+            }),
+            onChanged: (value) {
+              _productProvider.getFromData(
+                quantity: int.parse(value),
+              );
+            },
+            cursorColor: Palette.greenColor,
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Enter product quantity',
+              hintStyle: GoogleFonts.ubuntu(
+                fontSize: 16,
+                color: Palette.greyColor,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          DropdownButtonFormField(
+            decoration: const InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Select category',
+              hintStyle: TextStyle(
+                fontSize: 16,
+                color: Palette.greyColor,
+              ),
+            ),
+            items: _catagoryList.map<DropdownMenuItem<String>>((e) {
+              return DropdownMenuItem(
+                value: e,
+                child: Text(e),
+              );
+            }).toList(),
+            onChanged: (value) {
+              setState(() {
+                _productProvider.getFromData(category: value);
+              });
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            validator: ((value) {
+              if (value!.isEmpty) {
+                return 'Enter product description';
+              } else {
+                return null;
+              }
+            }),
+            onChanged: (value) {
+              _productProvider.getFromData(
+                description: value,
+              );
+            },
+            maxLines: 10,
+            cursorColor: Palette.greenColor,
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Enter product description',
+              hintStyle: GoogleFonts.ubuntu(
+                fontSize: 16,
+                color: Palette.greyColor,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }

@@ -39,7 +39,7 @@ class CartProvider with ChangeNotifier {
           price: existingCart.price,
           vendorId: existingCart.vendorId,
           productSize: existingCart.productSize,
-          scheduleDate: existingCart.scheduleDate,
+          // scheduleDate: existingCart.scheduleDate,
         ),
       );
       notifyListeners();
@@ -55,7 +55,7 @@ class CartProvider with ChangeNotifier {
           price: price,
           vendorId: vendorId,
           productSize: productSize,
-          scheduleDate: scheduleDate,
+          // scheduleDate: scheduleDate,
         ),
       );
       notifyListeners();

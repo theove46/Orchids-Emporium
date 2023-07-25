@@ -46,8 +46,7 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
     super.build(context);
     final ProductProvider _productProvider =
         Provider.of<ProductProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.all(10),
+    return SingleChildScrollView(
       child: Column(
         children: [
           GridView.builder(

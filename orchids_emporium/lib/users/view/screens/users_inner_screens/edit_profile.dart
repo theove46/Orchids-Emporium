@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  String? address;
+  late TextEditingController _addressController = TextEditingController();
+  String _imageUrl = '';
 
   _saveVendorDetails() async {
     EasyLoading.show(status: 'Please wait');
@@ -33,7 +36,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         'fullName': _fullNameController.text,
         'email': _emailController.text,
         'phone': _phoneController.text,
-        'address': address,
+        'address': _addressController.text,
+        'profileImage': _imageUrl.toString(),
       }).whenComplete(() {
         EasyLoading.dismiss();
         Navigator.pop(context);
@@ -49,6 +53,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       _fullNameController.text = widget.userData['fullName'];
       _emailController.text = widget.userData['email'];
       _phoneController.text = widget.userData['phone'];
+      _addressController.text = widget.userData['address'];
+      _imageUrl = widget.userData['profileImage'] ?? '';
     });
     super.initState();
   }
@@ -79,25 +85,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               key: _formKey,
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      const CircleAvatar(
-                        radius: 64,
-                        backgroundColor: Palette.greenColor,
-                        // backgroundImage:
-                        //     NetworkImage('https://example.com/profile_image.jpg'),
-                      ),
-                      Positioned(
-                          right: -10,
-                          top: -10,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.add_a_photo,
-                              color: Palette.greenColor,
-                            ),
-                          ))
-                    ],
+                  InkWell(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 64,
+                      backgroundColor: Palette.greenColor,
+                      backgroundImage:
+                          _imageUrl.isNotEmpty ? NetworkImage(_imageUrl) : null,
+                    ),
                   ),
                   const SizedBox(
                     height: 16,
@@ -214,16 +209,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     height: 16,
                   ),
                   TextFormField(
-                    onChanged: (value) {
-                      address = value;
+                    controller: _addressController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please this field must not be empty';
+                      } else {
+                        return null;
+                      }
                     },
-                    // validator: (value) {
-                    //   if (value!.isEmpty) {
-                    //     return 'Please this field must not be empty';
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
                     style: GoogleFonts.ubuntu(
                       color: Palette.greenColor,
                       fontSize: 16,

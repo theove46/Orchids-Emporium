@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/users/view/screens/product_details/product_details_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/product_details_screen.dart';
 
 class HomeProductsWidgets extends StatelessWidget {
   const HomeProductsWidgets({Key? key, required this.categoryName})
@@ -35,7 +35,7 @@ class HomeProductsWidgets extends StatelessWidget {
         }
 
         return SizedBox(
-          height: 330,
+          height: 430,
           child: GridView.builder(
             scrollDirection: Axis.vertical,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

@@ -25,58 +25,55 @@ class _ShippingScreenState extends State<ShippingScreen>
     super.build(context);
     final ProductProvider _productProvider =
         Provider.of<ProductProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          CheckboxListTile(
-            title: const CustomTextStyle(
-              text: 'Charge shipping',
-              color: Palette.greenColor,
-            ),
-            activeColor: Palette.greenColor,
-            value: _chargeShipping,
-            onChanged: (value) {
-              setState(() {
-                _chargeShipping = value;
-                _productProvider.getFromData(chargeShipping: _chargeShipping);
-              });
-            },
+    return Column(
+      children: [
+        CheckboxListTile(
+          title: const CustomTextStyle(
+            text: 'Charge shipping',
+            color: Palette.greenColor,
           ),
-          if (_chargeShipping == true)
-            TextFormField(
-              validator: ((value) {
-                if (value!.isEmpty) {
-                  return 'Enter shipping charge';
-                } else {
-                  return null;
-                }
-              }),
-              keyboardType: TextInputType.number,
-              cursorColor: Palette.greenColor,
-              onChanged: (value) {
-                _productProvider.getFromData(
-                  shippingCharge: int.parse(value),
-                );
-              },
-              decoration: InputDecoration(
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Palette.greenColor),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(color: Palette.greenColor),
-                ),
-                fillColor: Palette.whiteColor,
-                filled: true,
-                hintText: 'Shipping charge',
-                hintStyle: GoogleFonts.ubuntu(
-                  fontSize: 16,
-                  color: Palette.greyColor,
-                ),
+          activeColor: Palette.greenColor,
+          value: _chargeShipping,
+          onChanged: (value) {
+            setState(() {
+              _chargeShipping = value;
+              _productProvider.getFromData(chargeShipping: _chargeShipping);
+            });
+          },
+        ),
+        if (_chargeShipping == true)
+          TextFormField(
+            validator: ((value) {
+              if (value!.isEmpty) {
+                return 'Enter shipping charge';
+              } else {
+                return null;
+              }
+            }),
+            keyboardType: TextInputType.number,
+            cursorColor: Palette.greenColor,
+            onChanged: (value) {
+              _productProvider.getFromData(
+                shippingCharge: int.parse(value),
+              );
+            },
+            decoration: InputDecoration(
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Palette.greenColor),
+              ),
+              fillColor: Palette.whiteColor,
+              filled: true,
+              hintText: 'Shipping charge',
+              hintStyle: GoogleFonts.ubuntu(
+                fontSize: 16,
+                color: Palette.greyColor,
               ),
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

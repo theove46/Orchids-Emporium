@@ -4,10 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/users/view/screens/inner_screens/all_products_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/all_products_screen.dart';
 
-class CatagoryScreen extends StatelessWidget {
-  const CatagoryScreen({super.key});
+class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,23 +26,11 @@ class CatagoryScreen extends StatelessWidget {
         ),
         title: const CustomTextStyle(
           text: 'Categories',
-          size: 20,
+          size: 24,
           fontWeight: FontWeight.bold,
           color: Palette.greenColor,
         ),
         centerTitle: true,
-        // actions: [
-        //   if (_cartProvider.getCartItem.isNotEmpty)
-        //     IconButton(
-        //       icon: const Icon(
-        //         CupertinoIcons.delete,
-        //         color: Palette.greenColor,
-        //       ),
-        //       onPressed: () {
-        //         _cartProvider.removeAllItem();
-        //       },
-        //     )
-        // ],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _categoryStream,
@@ -116,6 +104,11 @@ class CatagoryScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+      bottomSheet: Container(
+        height: 60,
+        width: double.infinity,
+        color: Palette.greenColor,
       ),
     );
   }

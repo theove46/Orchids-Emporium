@@ -9,7 +9,6 @@ class ProductProvider with ChangeNotifier {
     int? quantity,
     String? category,
     String? description,
-    DateTime? scheduleDate,
     List<String>? imageUrlList,
     bool? chargeShipping,
     int? shippingCharge,
@@ -31,9 +30,9 @@ class ProductProvider with ChangeNotifier {
     if (description != null) {
       productData['description'] = description;
     }
-    if (scheduleDate != null) {
-      productData['scheduleDate'] = scheduleDate;
-    }
+    // if (scheduleDate != null) {
+    //   productData['scheduleDate'] = scheduleDate;
+    // }
     if (imageUrlList != null) {
       productData['imageUrlList'] = imageUrlList;
     }

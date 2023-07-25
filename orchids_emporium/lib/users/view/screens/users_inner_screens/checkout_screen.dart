@@ -7,8 +7,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
-import 'package:orchids_emporium/users/view/screens/inner_screens/edit_profile.dart';
-import 'package:orchids_emporium/users/view/screens/main_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/edit_profile.dart';
+import 'package:orchids_emporium/users/view/screens/main_user_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
@@ -205,6 +205,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               'productSize': item.productSize,
                               'quantity': item.quantity,
                               'orderDate': DateTime.now(),
+                              'accepted': false,
                             }).whenComplete(() {
                               setState(() {
                                 _cartProvider.getCartItem.clear();
@@ -214,7 +215,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return const MainScreen();
+                                    return const MainUserScreen();
                                   },
                                 ),
                               );

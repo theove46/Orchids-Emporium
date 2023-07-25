@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/users/view/screens/nav_screens/home_page_widgets/home_products.dart';
-import 'package:orchids_emporium/users/view/screens/nav_screens/home_page_widgets/main_products.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/home_page_widgets/home_products.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/home_page_widgets/main_products.dart';
 
 class CatagoryText extends StatefulWidget {
   const CatagoryText({super.key});

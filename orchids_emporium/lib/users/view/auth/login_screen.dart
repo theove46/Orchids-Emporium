@@ -8,7 +8,7 @@ import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
 import 'package:orchids_emporium/core/show_snackbar.dart';
 import 'package:orchids_emporium/users/view/auth/register_screen.dart';
-import 'package:orchids_emporium/users/view/screens/main_screen.dart';
+import 'package:orchids_emporium/users/view/screens/main_user_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,10 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
       });
 
       if (res == 'success') {
-        return Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return const MainScreen();
-        }));
+        return Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (BuildContext context) {
+              return const MainUserScreen();
+            },
+          ),
+        );
       } else {
         showSnack(context, res);
       }

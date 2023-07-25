@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/users/view/screens/product_details/product_details_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/product_details_screen.dart';
 
 class AllProductScreen extends StatelessWidget {
   const AllProductScreen({super.key, required this.categoryData});

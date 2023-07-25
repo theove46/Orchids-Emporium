@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
 import 'package:orchids_emporium/users/view/auth/login_screen.dart';
-import 'package:orchids_emporium/users/view/screens/inner_screens/edit_profile.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/edit_profile.dart';
+import 'package:orchids_emporium/users/view/screens/users_inner_screens/user_order_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/cart_screen.dart';
 
 class UserProfileScreen extends StatelessWidget {
   UserProfileScreen({super.key});
@@ -13,6 +15,7 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CollectionReference users = FirebaseFirestore.instance.collection('buyers');
+
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(FirebaseAuth.instance.currentUser!.uid).get(),
       builder:
@@ -37,27 +40,18 @@ class UserProfileScreen extends StatelessWidget {
                 color: Palette.greenColor,
               ),
               title: const CustomTextStyle(
-                text: 'Profile',
+                text: 'My Profile',
                 size: 20,
                 fontWeight: FontWeight.bold,
                 color: Palette.greenColor,
               ),
               centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.nightlight_outlined),
-                  onPressed: () {},
-                ),
-              ],
             ),
             body: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
                   Center(
                     child: CircleAvatar(
                       radius: 64,
@@ -80,7 +74,6 @@ class UserProfileScreen extends StatelessWidget {
                   CustomTextStyle(
                     text: data['email'],
                     color: Palette.greenColor,
-                    // fontWeight: FontWeight.bold,
                     size: 20,
                   ),
                   const SizedBox(
@@ -143,22 +136,42 @@ class UserProfileScreen extends StatelessWidget {
                       color: Palette.greenColor,
                     ),
                   ),
-                  const ListTile(
-                    leading: Icon(
+                  ListTile(
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const CartScreen();
+                          },
+                        ),
+                      );
+                    },
+                    leading: const Icon(
                       Icons.shopping_cart,
                       color: Palette.greenColor,
                     ),
-                    title: CustomTextStyle(
+                    title: const CustomTextStyle(
                       text: 'Cart',
                       color: Palette.greenColor,
                     ),
                   ),
-                  const ListTile(
-                    leading: Icon(
+                  ListTile(
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const UserOrderScreen();
+                          },
+                        ),
+                      );
+                    },
+                    leading: const Icon(
                       Icons.shop,
                       color: Palette.greenColor,
                     ),
-                    title: CustomTextStyle(
+                    title: const CustomTextStyle(
                       text: 'Orders',
                       color: Palette.greenColor,
                     ),

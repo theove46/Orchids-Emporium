@@ -6,8 +6,8 @@ import 'package:orchids_emporium/core/custom_textstyle.dart';
 import 'package:orchids_emporium/core/palette.dart';
 import 'package:orchids_emporium/core/show_snackbar.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
-import 'package:orchids_emporium/users/view/screens/nav_screens/cart_screen.dart';
-import 'package:orchids_emporium/users/view/screens/nav_screens/profile_screen_user.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/cart_screen.dart';
+import 'package:orchids_emporium/users/view/screens/users_nav_screens/profile_screen_user.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

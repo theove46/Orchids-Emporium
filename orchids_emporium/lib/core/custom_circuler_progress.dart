@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:orchids_emporium/core/progress_painter.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 
 class CustomProgress extends StatefulWidget {
   const CustomProgress({super.key});
@@ -96,20 +96,16 @@ class CustomProgressState extends State<CustomProgress>
   }
 
   getDoneText() {
-    return const CustomTextStyle(
-      text: 'Done',
-      size: 24,
-      fontWeight: FontWeight.bold,
-      color: Palette.greenColor,
+    return Text(
+      'Done',
+      style: AppTypography.regular24(),
     );
   }
 
   getProgressText() {
-    return CustomTextStyle(
-      text: _nextPercentage == 0 ? 'Tap' : '${_nextPercentage!.toInt()}',
-      size: 24,
-      fontWeight: FontWeight.bold,
-      color: Palette.greenColor,
+    return Text(
+      _nextPercentage == 0 ? 'Tap' : '${_nextPercentage!.toInt()}',
+      style: AppTypography.regular24(),
     );
   }
 

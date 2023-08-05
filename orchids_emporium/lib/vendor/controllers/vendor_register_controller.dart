@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,9 +17,7 @@ class VendorController {
         _storage.ref().child('storeImages').child(_auth.currentUser!.uid);
 
     UploadTask uploadTask = ref.putData(image!);
-
     TaskSnapshot snapshot = await uploadTask;
-
     String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
   }
@@ -45,7 +45,7 @@ class VendorController {
     String taxNumber,
     Uint8List? image,
   ) async {
-    String res = 'error occured';
+    String res = 'error occurred';
     try {
       String storeImage = await _uploadVendorImageToStorage(image);
 
@@ -64,7 +64,6 @@ class VendorController {
           'vendorId': _auth.currentUser!.uid,
         },
       );
-      ;
     } catch (e) {
       res = e.toString();
     }

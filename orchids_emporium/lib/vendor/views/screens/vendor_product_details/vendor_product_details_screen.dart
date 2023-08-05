@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/core/show_snackbar.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
+import 'package:orchids_emporium/core/widgets/show_snackbar.dart';
 
 class VendorProductDetailsScreen extends StatefulWidget {
   final dynamic productData;
@@ -71,11 +71,9 @@ class _VendorProductDetailsScreenState
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: CustomTextStyle(
-          text: widget.productData['productName'],
-          size: 20,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          widget.productData['productName'],
+          style: AppTypography.bold20(),
         ),
         centerTitle: true,
       ),
@@ -340,9 +338,11 @@ class _VendorProductDetailsScreenState
                   ),
                 ),
               ),
-              child: const CustomTextStyle(
-                text: 'Update product',
-                color: Palette.whiteColor,
+              child: Text(
+                'Update product',
+                style: AppTypography.regular16(
+                  color: Palette.whiteColor,
+                ),
               ),
             ),
           ),

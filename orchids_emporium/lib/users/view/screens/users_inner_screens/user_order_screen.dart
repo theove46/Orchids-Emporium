@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 
 class UserOrderScreen extends StatelessWidget {
   const UserOrderScreen({super.key});
@@ -31,11 +31,9 @@ class UserOrderScreen extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: const CustomTextStyle(
-          text: 'My Orders',
-          size: 24,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          'My Orders',
+          style: AppTypography.bold24(),
         ),
         centerTitle: true,
       ),
@@ -75,38 +73,29 @@ class UserOrderScreen extends StatelessWidget {
                             ),
                     ),
                     title: document['accepted'] == true
-                        ? const CustomTextStyle(
-                            text: 'Accepted',
-                            size: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.greenColor,
+                        ? Text(
+                            'Accepted',
+                            style: AppTypography.bold12(),
                           )
-                        : const CustomTextStyle(
-                            text: 'Not Accepted',
-                            size: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.redColor,
+                        : Text(
+                            'Not accepted',
+                            style: AppTypography.bold12(
+                              color: Palette.redColor,
+                            ),
                           ),
-                    subtitle: CustomTextStyle(
-                      text: formatedDate(document['orderDate'].toDate()),
-                      size: 16,
-                      color: Palette.greenColor,
-                    ),
-                    trailing: CustomTextStyle(
-                      text: '৳ ${totalOrder.toStringAsFixed(2)}',
-                      size: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Palette.greenColor,
+                    subtitle: Text(formatedDate(document['orderDate'].toDate()),
+                        style: AppTypography.regular16()),
+                    trailing: Text(
+                      '৳ ${totalOrder.toStringAsFixed(2)}',
+                      style: AppTypography.bold16(),
                     ),
                   ),
                   ExpansionTile(
                     collapsedIconColor: Palette.greenColor,
                     iconColor: Palette.greenColor,
-                    title: const CustomTextStyle(
-                      text: 'Order Details',
-                      size: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Order Details',
+                      style: AppTypography.bold16(),
                     ),
                     children: [
                       ListTile(
@@ -121,47 +110,37 @@ class UserOrderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        title: CustomTextStyle(
-                          text: document['productName'],
-                          size: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Palette.greenColor,
+                        title: Text(
+                          document['productName'],
+                          style: AppTypography.bold20(),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CustomTextStyle(
-                              text: 'Quantity: ${document['quantity']}',
-                              size: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.greenColor,
+                            Text(
+                              'Quantity: ${document['quantity']}',
+                              style: AppTypography.bold16(),
                             ),
-                            const CustomTextStyle(
-                              text: 'Buyer details:',
-                              size: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.greenColor,
+                            Text(
+                              'Buyer details:',
+                              style: AppTypography.bold16(),
                             ),
-                            CustomTextStyle(
-                              text: 'Name: ${document['buyerName']}',
-                              size: 16,
-                              color: Palette.greenColor,
+                            Text(
+                              'Name: ${document['buyerName']}',
+                              style: AppTypography.regular16(),
                             ),
-                            CustomTextStyle(
-                              text: 'Address: ${document['buyerAddress']}',
-                              size: 16,
-                              color: Palette.greenColor,
+                            Text(
+                              'Address: ${document['buyerAddress']}',
+                              style: AppTypography.regular16(),
                             ),
-                            CustomTextStyle(
-                              text: 'Phone: ${document['buyerPhone']}',
-                              size: 16,
-                              color: Palette.greenColor,
+                            Text(
+                              'Phone: ${document['buyerPhone']}',
+                              style: AppTypography.regular16(),
                             ),
-                            CustomTextStyle(
-                              text: 'Email: ${document['buyerEmail']}',
-                              size: 16,
-                              color: Palette.greenColor,
-                            ),
+                            Text(
+                              'Email: ${document['buyerEmail']}',
+                              style: AppTypography.regular16(),
+                            )
                           ],
                         ),
                       ),

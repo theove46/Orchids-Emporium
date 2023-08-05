@@ -45,18 +45,19 @@ class CatagoryWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        color: Palette.whiteColor,
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Palette.whiteColor,
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        categoryData['image'],
+                        fit: BoxFit.cover,
                       ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          categoryData['image'],
-                          fit: BoxFit.cover,
-                        ),
-                      )),
+                    ),
+                  ),
                   CustomTextStyle(
                     text: categoryData['categoryName'],
                     size: 14,

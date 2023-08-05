@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/users/model/cart_attributes.dart';
 
@@ -24,8 +23,7 @@ class CartProvider with ChangeNotifier {
     int productQuantity,
     double price,
     String vendorId,
-    String productSize,
-    Timestamp scheduleDate,
+    //String productSize,
   ) {
     if (_cartItems.containsKey(productId)) {
       _cartItems.update(
@@ -38,8 +36,7 @@ class CartProvider with ChangeNotifier {
           productQuantity: existingCart.productQuantity,
           price: existingCart.price,
           vendorId: existingCart.vendorId,
-          productSize: existingCart.productSize,
-          // scheduleDate: existingCart.scheduleDate,
+          //productSize: existingCart.productSize,
         ),
       );
       notifyListeners();
@@ -54,8 +51,7 @@ class CartProvider with ChangeNotifier {
           productQuantity: productQuantity,
           price: price,
           vendorId: vendorId,
-          productSize: productSize,
-          // scheduleDate: scheduleDate,
+          //productSize: productSize,
         ),
       );
       notifyListeners();

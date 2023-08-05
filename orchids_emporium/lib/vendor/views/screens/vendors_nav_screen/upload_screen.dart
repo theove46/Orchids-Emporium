@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
 import 'package:orchids_emporium/vendor/views/screens/main_vendor_screen.dart';
 import 'package:orchids_emporium/vendor/views/screens/upload_tap_screens/attribute_tab_screen.dart';
@@ -34,46 +34,36 @@ class UploadScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Palette.whiteColor,
             elevation: 0,
-            title: const CustomTextStyle(
-              text: 'Upload Products',
-              size: 24,
-              fontWeight: FontWeight.bold,
-              color: Palette.greenColor,
+            title: Text(
+              'Upload Products',
+              style: AppTypography.bold24(),
             ),
             centerTitle: true,
-            bottom: const TabBar(
+            bottom: TabBar(
               indicatorColor: Palette.greenColor,
               tabs: [
                 Tab(
-                  child: CustomTextStyle(
-                    text: 'General',
-                    size: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                  child: Text(
+                    'General',
+                    style: AppTypography.bold12(),
                   ),
                 ),
                 Tab(
-                  child: CustomTextStyle(
-                    text: 'Shipping',
-                    size: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                  child: Text(
+                    'Shipping',
+                    style: AppTypography.bold12(),
                   ),
                 ),
                 Tab(
-                  child: CustomTextStyle(
-                    text: 'Attributes',
-                    size: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                  child: Text(
+                    'Attributes',
+                    style: AppTypography.bold12(),
                   ),
                 ),
                 Tab(
-                  child: CustomTextStyle(
-                    text: 'Images',
-                    size: 12,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                  child: Text(
+                    'Images',
+                    style: AppTypography.bold12(),
                   ),
                 ),
               ],
@@ -160,9 +150,11 @@ class UploadScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          child: const CustomTextStyle(
-                            text: 'Save product',
-                            color: Palette.whiteColor,
+                          child: Text(
+                            'Save product',
+                            style: AppTypography.regular16(
+                              color: Palette.whiteColor,
+                            ),
                           ),
                         ),
                       ),

@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:orchids_emporium/core/nav_bar_vendor_items.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:orchids_emporium/vendor/views/auth/vendor_auth.dart';
 import 'package:orchids_emporium/vendor/views/screens/vendors_nav_screen/earning_screen.dart';
 import 'package:orchids_emporium/vendor/views/screens/vendors_nav_screen/manage_screen.dart';

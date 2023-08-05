@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 class CartAttribute with ChangeNotifier {
@@ -9,8 +8,7 @@ class CartAttribute with ChangeNotifier {
   int productQuantity;
   final double price;
   final String vendorId;
-  final String productSize;
-  // Timestamp scheduleDate;
+  //final String productSize;
 
   CartAttribute({
     required this.productName,
@@ -20,8 +18,7 @@ class CartAttribute with ChangeNotifier {
     required this.productQuantity,
     required this.price,
     required this.vendorId,
-    required this.productSize,
-    // required this.scheduleDate,
+    //required this.productSize,
   });
 
   void increase() {

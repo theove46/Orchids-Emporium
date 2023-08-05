@@ -3,10 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/core/show_snackbar.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/vendor/views/screens/vendors_inner_screes/withdrawal_screen.dart';
 
 class EarningScreen extends StatelessWidget {
@@ -85,49 +83,39 @@ class EarningScreen extends StatelessWidget {
                               const SizedBox(
                                 width: 20,
                               ),
-                              CustomTextStyle(
-                                text: data['companyName'],
-                                size: 36,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.greenColor,
+                              Text(
+                                data['companyName'],
+                                style: AppTypography.bold36(),
                               ),
                             ],
                           ),
                           const SizedBox(
                             height: 40,
                           ),
-                          const CustomTextStyle(
-                            text: 'Total Earnings:',
-                            size: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.greenColor,
+                          Text(
+                            'Total Earnings:',
+                            style: AppTypography.bold24(),
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          CustomTextStyle(
-                            text: '৳ ${totalOrder.toStringAsFixed(2)}',
-                            size: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.greenColor,
+                          Text(
+                            '৳ ${totalOrder.toStringAsFixed(2)}',
+                            style: AppTypography.bold36(),
                           ),
                           const SizedBox(
                             height: 100,
                           ),
-                          const CustomTextStyle(
-                            text: 'Total Orders:',
-                            size: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.greenColor,
+                          Text(
+                            'Total Orders:',
+                            style: AppTypography.bold24(),
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          CustomTextStyle(
-                            text: snapshot.data!.docs.length.toString(),
-                            size: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Palette.greenColor,
+                          Text(
+                            snapshot.data!.docs.length.toString(),
+                            style: AppTypography.bold36(),
                           ),
                           const SizedBox(
                             height: 100,
@@ -161,9 +149,11 @@ class EarningScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              child: const CustomTextStyle(
-                                text: 'Withdraw',
-                                color: Palette.whiteColor,
+                              child: Text(
+                                'Withdraw',
+                                style: AppTypography.regular16(
+                                  color: Palette.whiteColor,
+                                ),
                               ),
                             ),
                           ),

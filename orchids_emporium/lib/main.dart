@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:orchids_emporium/core/routes/route_generator.dart';
+import 'package:orchids_emporium/core/routes/routes.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
-import 'package:orchids_emporium/users/view/auth/login_screen.dart';
-import 'package:orchids_emporium/users/view/screens/main_user_screen.dart';
-import 'package:orchids_emporium/vendor/views/auth/firebase_auth_ui_screen.dart';
+import 'package:orchids_emporium/users/view/auth/sign_in_page/pages/user_sign_in_page.dart';
+import 'package:orchids_emporium/users/view/screens/dashboard/dashboard.dart';
 import 'package:orchids_emporium/vendor/views/auth/vendor_auth.dart';
-import 'package:orchids_emporium/vendor/views/auth/vendor_registration_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:orchids_emporium/vendor/views/screens/main_vendor_screen.dart';
 
@@ -22,8 +22,6 @@ void main() async {
     EmailAuthProvider(),
     PhoneAuthProvider(),
     GoogleProvider(clientId: '1:921101427915:android:2eb49101efe654a5c6674e'),
-    //AppleProvider(),
-    //FacebookProvider(clientId: FACEBOOK_CLIENT_ID),
   ]);
   runApp(
     MultiProvider(
@@ -55,22 +53,21 @@ class MyApp extends StatelessWidget {
       ],
     );
     return ScreenUtilInit(
-        designSize: const Size(428.0, 926.0),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
-            title: 'Orchids Emporium',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
-            debugShowCheckedModeBanner: false,
-            builder: EasyLoading.init(),
-            home: const MainUserScreen(),
-            //home: const MainVendorScreen(),
-            //home: const LoginScreen(),
-            //home: const VendorAuthScreen(),
-          );
-        });
+      designSize: const Size(428.0, 926.0),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          builder: EasyLoading.init(),
+          onGenerateRoute: RouteGenerator.generateRoute,
+          initialRoute: Routes.userDashBoard,
+          //home: const UserDashBoard(),
+          //home: const MainVendorScreen(),
+          //home: const LoginScreen(),
+          //home: const VendorAuthScreen(),
+        );
+      },
+    );
   }
 }

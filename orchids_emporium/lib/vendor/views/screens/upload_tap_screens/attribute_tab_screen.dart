@@ -1,8 +1,8 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -111,9 +111,11 @@ class _AttributeTabScreenState extends State<AttributeTabScreen>
                         ),
                       ),
                     ),
-                    child: const CustomTextStyle(
-                      text: 'Add',
-                      color: Palette.whiteColor,
+                    child: Text(
+                      'Add',
+                      style: AppTypography.regular16(
+                        color: Palette.whiteColor,
+                      ),
                     ),
                   )
                 : const Text(' '),
@@ -145,11 +147,11 @@ class _AttributeTabScreenState extends State<AttributeTabScreen>
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10),
-                        child: CustomTextStyle(
-                          text: _sizeList[index],
-                          size: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Palette.whiteColor,
+                        child: Text(
+                          _sizeList[index],
+                          style: AppTypography.bold20(
+                            color: Palette.whiteColor,
+                          ),
                         ),
                       ),
                     ),
@@ -179,13 +181,17 @@ class _AttributeTabScreenState extends State<AttributeTabScreen>
               ),
             ),
             child: _isSave
-                ? const CustomTextStyle(
-                    text: 'Saved',
-                    color: Palette.whiteColor,
+                ? Text(
+                    'Saved',
+                    style: AppTypography.regular16(
+                      color: Palette.whiteColor,
+                    ),
                   )
-                : const CustomTextStyle(
-                    text: 'Save',
-                    color: Palette.whiteColor,
+                : Text(
+                    'Save',
+                    style: AppTypography.regular16(
+                      color: Palette.whiteColor,
+                    ),
                   ),
           ),
       ],

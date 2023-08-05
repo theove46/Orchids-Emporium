@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/users/view/auth/login_screen.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
+import 'package:orchids_emporium/users/view/auth/sign_in_page/pages/user_sign_in_page.dart';
 import 'package:orchids_emporium/users/view/screens/users_inner_screens/edit_profile.dart';
 import 'package:orchids_emporium/users/view/screens/users_inner_screens/user_order_screen.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/cart_screen.dart';
@@ -39,11 +39,9 @@ class UserProfileScreen extends StatelessWidget {
               iconTheme: const IconThemeData(
                 color: Palette.greenColor,
               ),
-              title: const CustomTextStyle(
-                text: 'My Profile',
-                size: 20,
-                fontWeight: FontWeight.bold,
-                color: Palette.greenColor,
+              title: Text(
+                'My Profile',
+                style: AppTypography.bold20(),
               ),
               centerTitle: true,
             ),
@@ -62,19 +60,16 @@ class UserProfileScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  CustomTextStyle(
-                    text: data['fullName'],
-                    color: Palette.greenColor,
-                    fontWeight: FontWeight.bold,
-                    size: 24,
+                  Text(
+                    data['fullName'],
+                    style: AppTypography.bold24(),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  CustomTextStyle(
-                    text: data['email'],
-                    color: Palette.greenColor,
-                    size: 20,
+                  Text(
+                    data['email'],
+                    style: AppTypography.regular20(),
                   ),
                   const SizedBox(
                     height: 10,
@@ -101,11 +96,11 @@ class UserProfileScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      child: const CustomTextStyle(
-                        text: 'Edit profile',
-                        size: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Palette.whiteColor,
+                      child: Text(
+                        'Edit profile',
+                        style: AppTypography.bold24(
+                          color: Palette.whiteColor,
+                        ),
                       ),
                     ),
                   ),
@@ -116,24 +111,24 @@ class UserProfileScreen extends StatelessWidget {
                     thickness: 1,
                     color: Palette.greenColor,
                   ),
-                  const ListTile(
-                    leading: Icon(
+                  ListTile(
+                    leading: const Icon(
                       Icons.settings,
                       color: Palette.greenColor,
                     ),
-                    title: CustomTextStyle(
-                      text: 'Settings',
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Settings',
+                      style: AppTypography.regular16(),
                     ),
                   ),
-                  const ListTile(
-                    leading: Icon(
+                  ListTile(
+                    leading: const Icon(
                       Icons.phone,
                       color: Palette.greenColor,
                     ),
-                    title: CustomTextStyle(
-                      text: 'Phone',
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Phone',
+                      style: AppTypography.regular16(),
                     ),
                   ),
                   ListTile(
@@ -151,9 +146,9 @@ class UserProfileScreen extends StatelessWidget {
                       Icons.shopping_cart,
                       color: Palette.greenColor,
                     ),
-                    title: const CustomTextStyle(
-                      text: 'Cart',
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Cart',
+                      style: AppTypography.regular16(),
                     ),
                   ),
                   ListTile(
@@ -171,9 +166,9 @@ class UserProfileScreen extends StatelessWidget {
                       Icons.shop,
                       color: Palette.greenColor,
                     ),
-                    title: const CustomTextStyle(
-                      text: 'Orders',
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Orders',
+                      style: AppTypography.regular16(),
                     ),
                   ),
                   ListTile(
@@ -181,7 +176,7 @@ class UserProfileScreen extends StatelessWidget {
                       await _auth.signOut().whenComplete(() {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const LoginScreen();
+                          return const UserSignInPage();
                         }));
                       });
                     },
@@ -189,9 +184,9 @@ class UserProfileScreen extends StatelessWidget {
                       Icons.logout,
                       color: Palette.greenColor,
                     ),
-                    title: const CustomTextStyle(
-                      text: 'Logout',
-                      color: Palette.greenColor,
+                    title: Text(
+                      'Logout',
+                      style: AppTypography.regular16(),
                     ),
                   ),
                 ],

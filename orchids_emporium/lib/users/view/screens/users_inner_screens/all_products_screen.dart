@@ -2,8 +2,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/users/view/screens/users_inner_screens/product_details_screen.dart';
 
 class AllProductScreen extends StatelessWidget {
@@ -34,11 +34,11 @@ class AllProductScreen extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: CustomTextStyle(
-          text: categoryData['categoryName'],
-          size: 20,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          categoryData['categoryName'],
+          style: AppTypography.bold20(
+            color: Palette.whiteColor,
+          ),
         ),
         centerTitle: true,
       ),
@@ -110,11 +110,11 @@ class AllProductScreen extends StatelessWidget {
                             flex: 2,
                             child: Padding(
                               padding: const EdgeInsets.all(6),
-                              child: CustomTextStyle(
-                                text: productData['productName'],
-                                size: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.greenColor,
+                              child: Text(
+                                productData['productName'],
+                                style: AppTypography.bold24(
+                                  color: Palette.whiteColor,
+                                ),
                               ),
                             ),
                           ),
@@ -126,13 +126,11 @@ class AllProductScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CustomTextStyle(
-                                    text:
-                                        '৳ ${productData['productPrice'].toStringAsFixed(2)}',
-                                    size: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Palette.greenColor,
+                                  Text(
+                                    '৳ ${productData['productPrice'].toStringAsFixed(2)}',
+                                    style: AppTypography.bold16(),
                                   ),
+
                                   // IconButton(
                                   //   onPressed: () {},
                                   //   icon: const Icon(

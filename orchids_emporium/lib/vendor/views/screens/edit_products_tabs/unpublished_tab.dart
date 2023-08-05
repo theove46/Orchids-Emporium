@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 
 class UnPublishedTabs extends StatelessWidget {
   UnPublishedTabs({super.key});
@@ -38,26 +38,25 @@ class UnPublishedTabs extends StatelessWidget {
           }
 
           if (snapshot.data!.docs.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.remove_shopping_cart_sharp,
                     size: 80,
                     color: Palette.greenColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  CustomTextStyle(
-                    text: 'No unpublished\nproducts',
-                    size: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
-                    textAlign: TextAlign.center,
+                  Center(
+                    child: Text(
+                      'No unpublished\nproducts',
+                      style: AppTypography.bold36(),
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                 ],
@@ -125,18 +124,13 @@ class UnPublishedTabs extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CustomTextStyle(
-                              text: vendorProductsData['productName'],
-                              size: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.greenColor,
+                            Text(
+                              vendorProductsData['productName'],
+                              style: AppTypography.bold20(),
                             ),
-                            CustomTextStyle(
-                              text:
-                                  '৳ ${vendorProductsData['productPrice'].toStringAsFixed(2)}',
-                              size: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.greenColor,
+                            Text(
+                              '৳ ${vendorProductsData['productPrice'].toStringAsFixed(2)}',
+                              style: AppTypography.bold16(),
                             ),
                           ],
                         ),

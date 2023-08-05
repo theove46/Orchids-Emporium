@@ -2,8 +2,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/users/view/screens/users_inner_screens/product_details_screen.dart';
 
 class StoreDetailsScreen extends StatelessWidget {
@@ -25,11 +25,9 @@ class StoreDetailsScreen extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: CustomTextStyle(
-          text: storeData['companyName'],
-          size: 24,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          storeData['companyName'],
+          style: AppTypography.bold24(),
         ),
         centerTitle: true,
       ),
@@ -49,26 +47,23 @@ class StoreDetailsScreen extends StatelessWidget {
           }
 
           if (snapshot.data!.docs.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.hourglass_empty,
                     size: 80,
                     color: Palette.greenColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  CustomTextStyle(
-                    text: 'No products\nfor this store',
-                    size: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
-                    textAlign: TextAlign.center,
+                  Text(
+                    'No products\nfor this store',
+                    style: AppTypography.bold36(),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                 ],
@@ -125,11 +120,9 @@ class StoreDetailsScreen extends StatelessWidget {
                           flex: 2,
                           child: Padding(
                             padding: const EdgeInsets.all(6),
-                            child: CustomTextStyle(
-                              text: productData['productName'],
-                              size: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Palette.greenColor,
+                            child: Text(
+                              productData['productName'],
+                              style: AppTypography.bold24(),
                             ),
                           ),
                         ),
@@ -140,13 +133,11 @@ class StoreDetailsScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                CustomTextStyle(
-                                  text:
-                                      '৳ ${productData['productPrice'].toStringAsFixed(2)}',
-                                  size: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Palette.greenColor,
+                                Text(
+                                  '৳ ${productData['productPrice'].toStringAsFixed(2)}',
+                                  style: AppTypography.bold16(),
                                 ),
+
                                 // IconButton(
                                 //   onPressed: () {},
                                 //   icon: const Icon(

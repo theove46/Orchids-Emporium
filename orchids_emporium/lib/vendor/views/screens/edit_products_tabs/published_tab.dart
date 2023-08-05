@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/vendor/views/screens/vendor_product_details/vendor_product_details_screen.dart';
 
 class PublishedTabs extends StatelessWidget {
@@ -39,26 +39,25 @@ class PublishedTabs extends StatelessWidget {
           }
 
           if (snapshot.data!.docs.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.shopping_cart_sharp,
                     size: 80,
                     color: Palette.greenColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  CustomTextStyle(
-                    text: 'No published\nproducts',
-                    size: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
-                    textAlign: TextAlign.center,
+                  Text(
+                    'No published\nproducts',
+                    style: AppTypography.bold24(
+                      color: Palette.greenColor,
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                 ],
@@ -138,18 +137,13 @@ class PublishedTabs extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomTextStyle(
-                                text: vendorProductsData['productName'],
-                                size: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.greenColor,
+                              Text(
+                                vendorProductsData['productName'],
+                                style: AppTypography.bold20(),
                               ),
-                              CustomTextStyle(
-                                text:
-                                    '৳ ${vendorProductsData['productPrice'].toStringAsFixed(2)}',
-                                size: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.greenColor,
+                              Text(
+                                '৳ ${vendorProductsData['productPrice'].toStringAsFixed(2)}',
+                                style: AppTypography.bold16(),
                               ),
                             ],
                           ),

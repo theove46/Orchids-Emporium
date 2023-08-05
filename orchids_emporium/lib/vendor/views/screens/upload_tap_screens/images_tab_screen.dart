@@ -5,8 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
@@ -29,7 +29,10 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
   final List<String> _imageUrlList = [];
 
   chooseImage() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 25,
+    );
 
     if (pickedFile == null) {
     } else {
@@ -116,9 +119,11 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
                   ),
                 ),
               ),
-              child: const CustomTextStyle(
-                text: 'Upload',
-                color: Palette.whiteColor,
+              child: Text(
+                'Upload',
+                style: AppTypography.regular16(
+                  color: Palette.whiteColor,
+                ),
               ),
             ),
         ],

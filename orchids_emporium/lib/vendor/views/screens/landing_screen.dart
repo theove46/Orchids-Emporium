@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/vendor/models/vendor_user_models.dart';
 import 'package:orchids_emporium/vendor/views/auth/vendor_registration_screen.dart';
 import 'package:orchids_emporium/vendor/views/screens/main_vendor_screen.dart';
@@ -50,11 +50,9 @@ class _LandingScreenState extends State<LandingScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CustomTextStyle(
-                  text: 'Orchids Emporium',
-                  size: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Palette.greenColor,
+                Text(
+                  'Orchids Emporium',
+                  style: AppTypography.bold36(),
                 ),
                 const SizedBox(height: 16.0),
                 CircleAvatar(
@@ -64,17 +62,14 @@ class _LandingScreenState extends State<LandingScreen> {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                CustomTextStyle(
-                  text: 'Hello ${vendorUserModel.companyName.toString()}',
-                  size: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Palette.greenColor,
+                Text(
+                  'Hello ${vendorUserModel.companyName.toString()}',
+                  style: AppTypography.bold36(),
                 ),
                 const SizedBox(height: 8.0),
-                const CustomTextStyle(
-                  text: 'Admin will get back to you soon',
-                  size: 20,
-                  color: Palette.greenColor,
+                Text(
+                  'Admin will get back to you soon',
+                  style: AppTypography.regular20(),
                 ),
                 const SizedBox(height: 16.0),
                 ElevatedButton(
@@ -90,9 +85,11 @@ class _LandingScreenState extends State<LandingScreen> {
                       ),
                     ),
                   ),
-                  child: const CustomTextStyle(
-                    text: 'Signout',
-                    color: Palette.whiteColor,
+                  child: Text(
+                    'Signout',
+                    style: AppTypography.regular16(
+                      color: Palette.whiteColor,
+                    ),
                   ),
                 ),
               ],

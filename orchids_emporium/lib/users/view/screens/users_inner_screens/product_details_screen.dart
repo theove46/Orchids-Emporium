@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
-import 'package:orchids_emporium/core/show_snackbar.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
+import 'package:orchids_emporium/core/widgets/show_snackbar.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/cart_screen.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/profile_screen_user.dart';
@@ -30,7 +30,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   late PageController _pageController;
   int _currentPageIndex = 0;
-  String? _selectedSize;
+  //String? _selectedSize;
   bool isButtonPressed = false;
 
   @override
@@ -56,11 +56,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: CustomTextStyle(
-          text: widget.productData['productName'],
-          size: 20,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          widget.productData['productName'],
+          style: AppTypography.bold20(),
         ),
         centerTitle: true,
         actions: [
@@ -132,11 +130,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: CustomTextStyle(
-                  text: widget.productData['productName'],
-                  size: 40,
-                  color: Palette.greenColor,
-                  fontWeight: FontWeight.bold,
+                child: Text(
+                  widget.productData['productName'],
+                  style: AppTypography.bold36(),
                 ),
               ),
               const SizedBox(
@@ -144,22 +140,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: CustomTextStyle(
-                  text:
-                      '৳ ${widget.productData['productPrice'].toStringAsFixed(2)}',
-                  size: 32,
-                  color: Palette.greenColor,
-                  fontWeight: FontWeight.bold,
+                child: Text(
+                  '৳ ${widget.productData['productPrice'].toStringAsFixed(2)}',
+                  style: AppTypography.bold24(),
                 ),
               ),
               ExpansionTile(
-                title: const Row(
+                title: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CustomTextStyle(
-                      text: 'Description',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Description',
+                      style: AppTypography.regular20(),
                     ),
                   ],
                 ),
@@ -168,171 +160,110 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: CustomTextStyle(
-                      text: widget.productData['description'],
-                      textAlign: TextAlign.justify,
+                    child: Text(
+                      widget.productData['description'],
+                      style: AppTypography.regular20(),
                     ),
                   )
                 ],
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    const CustomTextStyle(
-                      text: 'Available size:  ',
-                      color: Palette.greenColor,
-                    ),
-                    SizedBox(
-                      height: 50,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: widget.productData['sizeList'].length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: OutlinedButton(
-                              onPressed: () {
-                                //isButtonPressed = !isButtonPressed;
-                                if (!isButtonPressed) {
-                                  setState(() {
-                                    isButtonPressed = !isButtonPressed;
-                                    _selectedSize =
-                                        widget.productData['sizeList'][index];
-                                  });
-                                } else {
-                                  setState(() {
-                                    isButtonPressed = !isButtonPressed;
-                                    _selectedSize = null;
-                                  });
-                                }
-                                print(_selectedSize);
-                              },
-                              style: OutlinedButton.styleFrom(
-                                side:
-                                    const BorderSide(color: Palette.greenColor),
-                                backgroundColor: _selectedSize ==
-                                        widget.productData['sizeList'][index]
-                                    ? Palette.greenColor
-                                    : Palette.whiteColor,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              child: CustomTextStyle(
-                                text: widget.productData['sizeList'][index],
-                                size: 16,
-                                color: _selectedSize ==
-                                        widget.productData['sizeList'][index]
-                                    ? Palette.whiteColor
-                                    : Palette.greenColor,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Estimated Shipping Date:  ${formatedDate()}',
+                  style: AppTypography.regular16(),
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 36,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: CustomTextStyle(
-                  text: 'Estimated Shipping Date:  ${formatedDate()}',
-                  color: Palette.greenColor,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomSheet: Container(
-        color: Palette.whiteColor,
-        height: 50,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.store,
-                  size: 32,
-                  color: Palette.greenColor,
-                ),
-                onPressed: () {},
-              ),
-              ElevatedButton(
-                onPressed: _cartProvider.getCartItem
-                        .containsKey(widget.productData['productId'])
-                    ? () {
-                        showSnack(
-                            context, 'Item has been already added in cart');
-                      }
-                    : () {
-                        if (_selectedSize != null) {
-                          _cartProvider.addProductToCart(
-                            widget.productData['productName'],
-                            widget.productData['productId'],
-                            widget.productData['imageUrl'],
-                            1,
-                            widget.productData['quantity'],
-                            widget.productData['productPrice'],
-                            widget.productData['vendorId'],
-                            _selectedSize!,
-                            widget.productData['scheduleDate'],
-                          );
-                          showSnack(context,
-                              '${widget.productData['productName']} has been added in cart successfully');
-                        } else {
-                          showSnack(context, 'Please select size');
-                        }
-                      },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Palette.greenColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: _cartProvider.getCartItem
-                        .containsKey(widget.productData['productId'])
-                    ? const CustomTextStyle(
-                        text: 'In cart',
-                        color: Palette.whiteColor,
-                      )
-                    : const CustomTextStyle(
-                        text: 'Add to cart',
-                        color: Palette.whiteColor,
+              Container(
+                color: Palette.whiteColor,
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Icons.store,
+                          size: 32,
+                          color: Palette.greenColor,
+                        ),
+                        onPressed: () {},
                       ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_cartProvider.getCartItem.isNotEmpty) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const CartScreen();
+                      ElevatedButton(
+                        onPressed: _cartProvider.getCartItem
+                                .containsKey(widget.productData['productId'])
+                            ? () {
+                                showSnack(context,
+                                    'Item has been already added in cart');
+                              }
+                            : () {
+                                _cartProvider.addProductToCart(
+                                  widget.productData['productName'],
+                                  widget.productData['productId'],
+                                  widget.productData['imageUrl'],
+                                  1,
+                                  widget.productData['quantity'],
+                                  widget.productData['productPrice'],
+                                  widget.productData['vendorId'],
+                                );
+                                showSnack(context,
+                                    '${widget.productData['productName']} has been added in cart successfully');
+                              },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Palette.greenColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: _cartProvider.getCartItem
+                                .containsKey(widget.productData['productId'])
+                            ? Text(
+                                'In cart',
+                                style: AppTypography.regular16(
+                                  color: Palette.whiteColor,
+                                ),
+                              )
+                            : Text(
+                                'Add to cart',
+                                style: AppTypography.regular16(
+                                  color: Palette.whiteColor,
+                                ),
+                              ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_cartProvider.getCartItem.isNotEmpty) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const CartScreen();
+                                },
+                              ),
+                            );
+                          } else {
+                            showSnack(context, 'Please add items to cart');
+                          }
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Palette.greenColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          'Buy now',
+                          style: AppTypography.regular16(
+                            color: Palette.whiteColor,
+                          ),
+                        ),
                       ),
-                    );
-                  } else {
-                    showSnack(context, 'Please add items to cart');
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Palette.greenColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    ],
                   ),
-                ),
-                child: const CustomTextStyle(
-                  text: 'Buy now',
-                  color: Palette.whiteColor,
                 ),
               ),
             ],

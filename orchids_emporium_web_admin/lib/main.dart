@@ -25,19 +25,6 @@ void main() async {
         : null,
   );
 
-  // if (kIsWeb) {
-  //   await Firebase.initializeApp(
-  //     options: const FirebaseOptions(
-  //       apiKey: "AIzaSyDm9pLGSRJUfdtnD_FC05dKmnwZjs-F1Pw",
-  //       appId: "1:921101427915:web:fc650ffbaccda75fc6674e",
-  //       messagingSenderId: "921101427915",
-  //       projectId: "orchids-emporium",
-  //       storageBucket: "orchids-emporium.appspot.com",
-  //     ),
-  //   );
-  // } else {
-  //   await Firebase.initializeApp();
-  // }
   runApp(const MyApp());
 }
 

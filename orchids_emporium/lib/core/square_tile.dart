@@ -1,8 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 
 class SquareTile extends StatelessWidget {
   final String imagePath;
@@ -25,11 +24,9 @@ class SquareTile extends StatelessWidget {
             height: 40,
           ),
           const SizedBox(width: 20),
-          CustomTextStyle(
-            text: title,
-            size: 20,
-            fontWeight: FontWeight.bold,
-            color: Palette.greenColor,
+          Text(
+            title,
+            style: AppTypography.bold20(),
           ),
         ],
       ),

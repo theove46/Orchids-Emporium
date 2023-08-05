@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class BannerWidget extends StatefulWidget {
@@ -37,7 +37,11 @@ class _BannerWidgetState extends State<BannerWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 14, right: 14, bottom: 10),
+      padding: const EdgeInsets.only(
+        left: 16,
+        right: 16,
+        bottom: 10,
+      ),
       child: Container(
           height: 200,
           width: double.infinity,
@@ -69,7 +73,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                       enabled: true,
                       direction: const ShimmerDirection.fromLTRB(),
                       child: Container(
-                        color: Palette.greenColor,
+                        color: Palette.whiteColor,
                       ),
                     ),
                     errorWidget: (context, url, error) => const Icon(

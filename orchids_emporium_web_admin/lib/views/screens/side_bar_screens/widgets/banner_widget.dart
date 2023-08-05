@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:orchids_emporium_web_admin/core/custom_textstyle.dart';
 import 'package:orchids_emporium_web_admin/core/palette.dart';
 
-// Show images on web, run this command on termnal:
-// flutter run -d chrome --web-port=8080  --web-renderer html
-
 class BannerWidget extends StatelessWidget {
   const BannerWidget({super.key});
 

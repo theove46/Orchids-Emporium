@@ -3,10 +3,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/vendor/models/vendor_user_models.dart';
 import 'package:orchids_emporium/vendor/views/auth/vendor_auth.dart';
 import 'package:orchids_emporium/vendor/views/auth/vendor_registration_screen.dart';
@@ -65,28 +64,24 @@ class _ProfileScreenState extends State<VendorProfileScreen> {
                         ),
                       ),
                       const SizedBox(height: 16.0),
-                      CustomTextStyle(
-                        text: vendorUserModel.companyName.toString(),
-                        size: 40,
-                        fontWeight: FontWeight.bold,
-                        color: Palette.greenColor,
+                      Text(
+                        vendorUserModel.companyName.toString(),
+                        style: AppTypography.bold36(),
                       ),
                       const SizedBox(height: 6.0),
-                      CustomTextStyle(
-                        text: vendorUserModel.email.toString(),
-                        size: 20,
-                        color: Palette.greenColor,
+                      Text(
+                        vendorUserModel.email.toString(),
+                        style: AppTypography.regular20(),
                       ),
                       const SizedBox(height: 6.0),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CustomTextStyle(
-                            text: 'Verified  ',
-                            size: 20,
-                            color: Palette.greenColor,
+                          Text(
+                            'Verified  ',
+                            style: AppTypography.regular20(),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.verified,
                             color: Palette.greenColor,
                             size: 20.0,
@@ -291,9 +286,11 @@ class _ProfileScreenState extends State<VendorProfileScreen> {
                               ),
                             ),
                           ),
-                          child: const CustomTextStyle(
-                            text: 'Signout',
-                            color: Palette.whiteColor,
+                          child: Text(
+                            'Signout',
+                            style: AppTypography.regular16(
+                              color: Palette.whiteColor,
+                            ),
                           ),
                         ),
                       ),

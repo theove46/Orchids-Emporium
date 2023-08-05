@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -28,9 +28,9 @@ class _ShippingScreenState extends State<ShippingScreen>
     return Column(
       children: [
         CheckboxListTile(
-          title: const CustomTextStyle(
-            text: 'Charge shipping',
-            color: Palette.greenColor,
+          title: Text(
+            'Charge shipping',
+            style: AppTypography.regular16(),
           ),
           activeColor: Palette.greenColor,
           value: _chargeShipping,

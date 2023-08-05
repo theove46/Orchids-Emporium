@@ -3,8 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/home_page_widgets/home_products.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/home_page_widgets/main_products.dart';
 
@@ -29,11 +29,12 @@ class _CatagoryTextState extends State<CatagoryText> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomTextStyle(
-            text: 'Catagories',
-            size: 20,
-            fontWeight: FontWeight.bold,
-            color: Palette.greenColor,
+          Text(
+            'Catagories',
+            style: AppTypography.bold20(),
+          ),
+          const SizedBox(
+            height: 6,
           ),
           StreamBuilder<QuerySnapshot>(
             stream: _categoryStream,
@@ -49,36 +50,37 @@ class _CatagoryTextState extends State<CatagoryText> {
                   ),
                 );
               }
+
               return SizedBox(
-                height: 40,
-                child: Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 6, //snapshot.data!.docs.length,
-                    itemBuilder: ((context, index) {
-                      final categoryData = snapshot.data!.docs[index];
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 6),
-                        child: ActionChip(
-                            label: Text(categoryData['categoryName']),
-                            labelStyle: GoogleFonts.ubuntu(
-                              fontSize: 16,
-                              color: Palette.whiteColor,
-                            ),
-                            backgroundColor: Palette.greenColor,
-                            onPressed: () {
-                              setState(() {
-                                _selectedCategory =
-                                    categoryData['categoryName'];
-                              });
-                              //print(_selectedCategory);
-                            }),
-                      );
-                    }),
-                  ),
+                height: 30,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6, //snapshot.data!.docs.length,
+                  itemBuilder: ((context, index) {
+                    final categoryData = snapshot.data!.docs[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: ActionChip(
+                          label: Text(categoryData['categoryName']),
+                          labelStyle: GoogleFonts.ubuntu(
+                            fontSize: 16,
+                            color: Palette.whiteColor,
+                          ),
+                          backgroundColor: Palette.greenColor,
+                          onPressed: () {
+                            setState(() {
+                              _selectedCategory = categoryData['categoryName'];
+                            });
+                            //print(_selectedCategory);
+                          }),
+                    );
+                  }),
                 ),
               );
             },
+          ),
+          const SizedBox(
+            height: 6,
           ),
           if (_selectedCategory == null || _selectedCategory == 'All')
             const MainProductsWidgets()

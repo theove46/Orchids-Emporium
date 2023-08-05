@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:orchids_emporium/core/custom_circuler_progress.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:uuid/uuid.dart';
 
 class WithdrawalScreen extends StatefulWidget {
@@ -44,11 +44,9 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: const CustomTextStyle(
-          text: 'Withdraw',
-          size: 20,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          'Withdraw',
+          style: AppTypography.bold20(),
         ),
         centerTitle: true,
       ),
@@ -267,9 +265,11 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                         ),
                       ),
                     ),
-                    child: const CustomTextStyle(
-                      text: 'Withdraw cash',
-                      color: Palette.whiteColor,
+                    child: Text(
+                      'Withdraw cash',
+                      style: AppTypography.regular16(
+                        color: Palette.whiteColor,
+                      ),
                     ),
                   ),
                 ),
@@ -300,41 +300,34 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text: 'Vendors Name: \n${name.toString()}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Vendors Name: \n${name.toString()}',
+                      style: AppTypography.regular20(),
                     ),
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text: 'Phone Number: \n${phone.toString()}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Phone Number: \n${phone.toString()}',
+                      style: AppTypography.regular20(),
                     ),
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text: 'Bank Name: \n${bankName.toString()}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Bank Name: \n${bankName.toString()}',
+                      style: AppTypography.regular20(),
                     ),
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text: 'Account Name: \n${accountName.toString()}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Account Name: \n${accountName.toString()}',
+                      style: AppTypography.regular20(),
                     ),
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text: 'Account Number: \n${accountNumber.toString()}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Account Number: \n${accountNumber.toString()}',
+                      style: AppTypography.regular20(),
                     ),
                     const SizedBox(height: 20),
-                    CustomTextStyle(
-                      text:
-                          'Withdrawal Amount: \n৳ ${double.parse(_amountController.text).toStringAsFixed(2)}',
-                      size: 20,
-                      color: Palette.greenColor,
+                    Text(
+                      'Withdrawal Amount: \n৳ ${double.parse(_amountController.text).toStringAsFixed(2)}',
+                      style: AppTypography.regular20(),
                     ),
                   ],
                 ),

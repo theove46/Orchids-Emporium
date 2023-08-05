@@ -5,8 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orchids_emporium/core/custom_textstyle.dart';
-import 'package:orchids_emporium/core/palette.dart';
+import 'package:orchids_emporium/core/theme/palette.dart';
+import 'package:orchids_emporium/core/typography/style.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key, required this.userData});
@@ -69,11 +69,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         iconTheme: const IconThemeData(
           color: Palette.greenColor,
         ),
-        title: const CustomTextStyle(
-          text: 'Edit profile',
-          size: 20,
-          fontWeight: FontWeight.bold,
-          color: Palette.greenColor,
+        title: Text(
+          'Edit profile',
+          style: AppTypography.bold20(),
         ),
         centerTitle: true,
       ),
@@ -255,11 +253,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const CustomTextStyle(
-                      text: 'Save',
-                      size: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Palette.whiteColor,
+                    child: Text(
+                      'Save',
+                      style: AppTypography.bold20(
+                        color: Palette.whiteColor,
+                      ),
                     ),
                   ),
                 ],

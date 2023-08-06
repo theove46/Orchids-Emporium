@@ -22,9 +22,9 @@ class InputValidators {
 
   static String? phone(String? value) {
     if (value!.isEmpty) return 'Field can\'t be empty';
-    return null;
+    // return null;
 
-    //  return value.length != 11 ? 'Must be 11 digits long' : null;
+    return value.length != 11 ? 'Must be 11 digits long' : null;
   }
 
   // static String? password(String? value) {

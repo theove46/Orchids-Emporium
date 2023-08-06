@@ -23,7 +23,7 @@ class CartProvider with ChangeNotifier {
     int productQuantity,
     double price,
     String vendorId,
-    //String productSize,
+    String brandName,
   ) {
     if (_cartItems.containsKey(productId)) {
       _cartItems.update(
@@ -36,7 +36,7 @@ class CartProvider with ChangeNotifier {
           productQuantity: existingCart.productQuantity,
           price: existingCart.price,
           vendorId: existingCart.vendorId,
-          //productSize: existingCart.productSize,
+          brandName: existingCart.brandName,
         ),
       );
       notifyListeners();
@@ -51,7 +51,7 @@ class CartProvider with ChangeNotifier {
           productQuantity: productQuantity,
           price: price,
           vendorId: vendorId,
-          //productSize: productSize,
+          brandName: brandName,
         ),
       );
       notifyListeners();

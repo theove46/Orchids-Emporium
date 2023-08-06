@@ -24,6 +24,15 @@ class RouteGenerator {
           builder: (_) => const UserDashBoard(),
         );
 
+      // case Routes.bkashPhoneNumber:
+      //   return MaterialPageRoute(
+      //     builder: (_) => BkashPhoneNumberPage(
+      //         buyerName: routeSettings.arguments as String,
+      //         buyerId: routeSettings.arguments as String,
+      //         buyerPhoto: routeSettings.arguments as String,
+      //         ),
+      //   );
+
       // case Routes.inbox:
       //   return MaterialPageRoute(
       //     builder: (_) => const InboxPage(),

@@ -79,7 +79,10 @@ class _SignUpButtonBuilderState extends State<_SignUpButtonBuilder> {
           _isLoading = false;
         });
 
-        showSnack(context, 'Account has been created');
+        ShowSnackBarMessage.showSuccessSnackBar(
+          message: 'Account has been created',
+          context: context,
+        );
 
         _navigateToSignInPage();
       } catch (error) {
@@ -87,13 +90,20 @@ class _SignUpButtonBuilderState extends State<_SignUpButtonBuilder> {
           _isLoading = false;
         });
 
-        showSnack(context, 'An error occurred. Please try again.');
+        ShowSnackBarMessage.showErrorSnackBar(
+          message: 'An error occurred. Please try again.',
+          context: context,
+        );
       }
     } else {
       setState(() {
         _isLoading = false;
       });
-      showSnack(context, 'Fields and Image must not be empty');
+
+      ShowSnackBarMessage.showErrorSnackBar(
+        message: 'Fields and Image must not be empty',
+        context: context,
+      );
     }
   }
 

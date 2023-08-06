@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:orchids_emporium/core/typography/style.dart';
-import 'package:orchids_emporium/core/widgets/show_snackbar.dart';
+import 'package:orchids_emporium/core/widgets/primary_snackbar.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/cart_screen.dart';
 import 'package:orchids_emporium/users/view/screens/users_nav_screens/profile_screen_user.dart';
@@ -12,8 +12,10 @@ import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({Key? key, required this.productData})
-      : super(key: key);
+  const ProductDetailsScreen({
+    Key? key,
+    required this.productData,
+  }) : super(key: key);
   final dynamic productData;
 
   @override
@@ -30,7 +32,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   late PageController _pageController;
   int _currentPageIndex = 0;
-  //String? _selectedSize;
   bool isButtonPressed = false;
 
   @override
@@ -197,8 +198,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         onPressed: _cartProvider.getCartItem
                                 .containsKey(widget.productData['productId'])
                             ? () {
-                                showSnack(context,
-                                    'Item has been already added in cart');
+                                ShowSnackBarMessage.showErrorSnackBar(
+                                  message:
+                                      'Item has been already added in cart',
+                                  context: context,
+                                );
                               }
                             : () {
                                 _cartProvider.addProductToCart(
@@ -209,9 +213,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                   widget.productData['quantity'],
                                   widget.productData['productPrice'],
                                   widget.productData['vendorId'],
+                                  widget.productData['brandName'],
                                 );
-                                showSnack(context,
-                                    '${widget.productData['productName']} has been added in cart successfully');
+
+                                ShowSnackBarMessage.showSuccessSnackBar(
+                                  message:
+                                      '${widget.productData['productName']} has been added in cart successfully',
+                                  context: context,
+                                );
                               },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Palette.greenColor,
@@ -246,7 +255,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ),
                             );
                           } else {
-                            showSnack(context, 'Please add items to cart');
+                            ShowSnackBarMessage.showErrorSnackBar(
+                              message: 'Please add items to cart',
+                              context: context,
+                            );
                           }
                         },
                         style: ElevatedButton.styleFrom(

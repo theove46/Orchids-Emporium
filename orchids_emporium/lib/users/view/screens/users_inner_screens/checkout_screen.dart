@@ -1,16 +1,15 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: no_leading_underscores_for_local_identifiers, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:orchids_emporium/users/view/screens/bkash_payment/pages/phone_number_page.dart';
 import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
 import 'package:orchids_emporium/users/view/screens/users_inner_screens/edit_profile.dart';
-import 'package:orchids_emporium/users/view/screens/dashboard/dashboard.dart';
 import 'package:provider/provider.dart';
-import 'package:uuid/uuid.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
@@ -22,9 +21,10 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
-    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    double totalPrice = 0.0;
     final CartProvider _cartProvider = Provider.of<CartProvider>(context);
     CollectionReference users = FirebaseFirestore.instance.collection('buyers');
+
     return FutureBuilder<DocumentSnapshot>(
       future: users.doc(FirebaseAuth.instance.currentUser!.uid).get(),
       builder:
@@ -40,6 +40,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
+
           return Scaffold(
             backgroundColor: Palette.whiteColor,
             appBar: AppBar(
@@ -164,44 +165,31 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           padding: const EdgeInsets.only(
                               left: 10, right: 10, bottom: 5),
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               EasyLoading.show(status: 'Placing Order');
-                              _cartProvider.getCartItem.forEach((key, item) {
-                                final orderId = const Uuid().v4();
-                                _firestore
-                                    .collection('orders')
-                                    .doc(orderId)
-                                    .set({
-                                  'orderId': orderId,
-                                  'vendorId': item.vendorId,
-                                  'buyerEmail': data['email'],
-                                  'buyerPhone': data['phone'],
-                                  'buyerAddress': data['address'],
-                                  'buyerId': data['buyerId'],
-                                  'buyerName': data['fullName'],
-                                  'buyerPhoto': data['profileImage'],
-                                  'productName': item.productName,
-                                  'productPrice': item.price,
-                                  'productImage': item.imageUrl,
-                                  'productId': item.productId,
-                                  'quantity': item.quantity,
-                                  'orderDate': DateTime.now(),
-                                  'accepted': false,
-                                }).whenComplete(() {
-                                  setState(() {
-                                    _cartProvider.getCartItem.clear();
-                                  });
-                                  EasyLoading.dismiss();
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return const UserDashBoard();
-                                      },
-                                    ),
-                                  );
-                                });
-                              });
+                              await Future.delayed(const Duration(seconds: 2));
+
+                              totalPrice = 0.0;
+                              _cartProvider.getCartItem.forEach(
+                                (key, item) {
+                                  totalPrice =
+                                      totalPrice + item.price * item.quantity;
+                                },
+                              );
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return BkashPhoneNumberPage(
+                                      userData: data,
+                                      totalPrice: totalPrice,
+                                      // item: totalPrice,
+                                    );
+                                  },
+                                ),
+                              );
+                              EasyLoading.dismiss();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Palette.greenColor,

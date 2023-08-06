@@ -8,4 +8,6 @@ class Palette {
   static const Color whiteColor = Color(0xffdee1ec);
   static const Color blackColor = Color(0xff000000);
   static const Color greenwhiteColor = Color(0xffe2f3f5);
+  static const Color pinkColor = Color(0xffDB0F6B);
+  static const Color greyWhiteColor = Color(0xffdee1ec);
 }

@@ -4,7 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:orchids_emporium/core/theme/palette.dart';
 import 'package:orchids_emporium/core/typography/style.dart';
-import 'package:orchids_emporium/core/widgets/show_snackbar.dart';
+import 'package:orchids_emporium/core/widgets/primary_snackbar.dart';
 
 class VendorProductDetailsScreen extends StatefulWidget {
   final dynamic productData;
@@ -326,7 +326,11 @@ class _VendorProductDetailsScreenState
                   'category': category,
                 }).whenComplete(() {
                   EasyLoading.dismiss();
-                  showSnack(context, 'Product update successfully');
+
+                  ShowSnackBarMessage.showSuccessSnackBar(
+                    message: 'Product update successfully',
+                    context: context,
+                  );
                 });
               },
               style: ButtonStyle(

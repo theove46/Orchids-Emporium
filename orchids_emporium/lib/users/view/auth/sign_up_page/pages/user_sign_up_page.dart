@@ -10,9 +10,9 @@ import 'package:orchids_emporium/core/routes/routes.dart';
 import 'package:orchids_emporium/core/typography/style.dart';
 import 'package:orchids_emporium/core/validators/input_validators.dart';
 import 'package:orchids_emporium/core/widgets/primary_input_form_field.dart';
+import 'package:orchids_emporium/core/widgets/primary_snackbar.dart';
 import 'package:orchids_emporium/users/controllers/auth_controller.dart';
 import 'package:orchids_emporium/core/theme/palette.dart';
-import 'package:orchids_emporium/core/widgets/show_snackbar.dart';
 
 part '../widgets/navigate_to_sign_in.dart';
 part '../widgets/sign_up_button_builder.dart';

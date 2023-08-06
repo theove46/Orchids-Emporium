@@ -64,19 +64,30 @@ class _SignInButtonBuilderState extends State<_SignInButtonBuilder> {
         if (res == 'success') {
           _navigateToHomePage();
         } else {
-          showSnack(context, res);
+          ShowSnackBarMessage.showSuccessSnackBar(
+            message: res,
+            context: context,
+          );
         }
       } catch (error) {
         setState(() {
           _isLoading = false;
         });
-        showSnack(context, 'An error occurred. Please try again.');
+
+        ShowSnackBarMessage.showErrorSnackBar(
+          message: 'An error occurred. Please try again.',
+          context: context,
+        );
       }
     } else {
       setState(() {
         _isLoading = false;
       });
-      showSnack(context, 'Fields must not be empty');
+
+      ShowSnackBarMessage.showErrorSnackBar(
+        message: 'Fields must not be empty',
+        context: context,
+      );
     }
   }
 

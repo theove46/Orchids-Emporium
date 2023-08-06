@@ -30,9 +30,7 @@ class ProductProvider with ChangeNotifier {
     if (description != null) {
       productData['description'] = description;
     }
-    // if (scheduleDate != null) {
-    //   productData['scheduleDate'] = scheduleDate;
-    // }
+
     if (imageUrlList != null) {
       productData['imageUrlList'] = imageUrlList;
     }

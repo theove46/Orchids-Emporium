@@ -65,6 +65,7 @@ class InputFormField extends StatefulWidget {
     this.enabled = true,
     this.onChanged,
     this.maxLength,
+    this.textAlign = TextAlign.start,
   })  : assert(obscuringCharacter.isNotNull && obscuringCharacter.length == 1),
         assert(
           !(password.isNotNull && obscureText.isNotNull),
@@ -184,6 +185,8 @@ class InputFormField extends StatefulWidget {
 
   final int? maxLength;
 
+  final TextAlign textAlign;
+
   @override
   State<InputFormField> createState() => _InputFormFieldState();
 }
@@ -239,6 +242,7 @@ class _InputFormFieldState extends State<InputFormField> {
             inputFormatters: [
               LengthLimitingTextInputFormatter(widget.maxLength),
             ],
+            textAlign: widget.textAlign,
             maxLengthEnforcement: MaxLengthEnforcement.none,
             enabled: widget.enabled,
             controller: widget.textEditingController,

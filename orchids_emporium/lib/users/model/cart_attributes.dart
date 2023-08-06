@@ -8,7 +8,7 @@ class CartAttribute with ChangeNotifier {
   int productQuantity;
   final double price;
   final String vendorId;
-  //final String productSize;
+  final String brandName;
 
   CartAttribute({
     required this.productName,
@@ -18,7 +18,7 @@ class CartAttribute with ChangeNotifier {
     required this.productQuantity,
     required this.price,
     required this.vendorId,
-    //required this.productSize,
+    required this.brandName,
   });
 
   void increase() {

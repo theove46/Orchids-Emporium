@@ -32,9 +32,9 @@ class UserAuthController {
     }
   }
 
-  Future<String> signUpUsers(
-      String fullName, String email, String phone, String password, Uint8List? image) async {
-    String res = 'Error occured';
+  Future<String> signUpUsers(String fullName, String email, String phone,
+      String password, Uint8List? image) async {
+    String res = 'Error occurred';
 
     try {
       if (fullName.isNotEmpty &&
@@ -43,17 +43,21 @@ class UserAuthController {
           password.isNotEmpty &&
           image != null) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
         String profileImageUrl = await _uploadProfileImageToStorage(image);
-        
-        await _firestore.collection('buyers').doc(cred.user!.uid).set({
-          'fullName': fullName,
-          'email': email,
-          'phone': phone,
-          'buyerId': cred.user!.uid,
-          'address': '',
-          'profileImage': profileImageUrl,
-        });
+
+        await _firestore.collection('buyers').doc(cred.user!.uid).set(
+          {
+            'fullName': fullName,
+            'email': email,
+            'phone': phone,
+            'buyerId': cred.user!.uid,
+            'address': '',
+            'profileImage': profileImageUrl,
+          },
+        );
         res = 'success';
       } else {
         res = 'Fields must not be empty';
@@ -65,12 +69,14 @@ class UserAuthController {
   }
 
   loginUsers(String email, String password) async {
-    String res = 'Error occured';
+    String res = 'Error occurred';
 
     try {
       if (email.isNotEmpty && password.isNotEmpty) {
         await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
         res = 'success';
       } else {
         res = 'Fields must not be empty';

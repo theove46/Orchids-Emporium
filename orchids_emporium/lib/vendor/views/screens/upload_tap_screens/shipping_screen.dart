@@ -32,7 +32,7 @@ class _ShippingScreenState extends State<ShippingScreen>
             'Charge shipping',
             style: AppTypography.regular16(),
           ),
-          activeColor: Palette.greenColor,
+          activeColor: Palette.primary,
           value: _chargeShipping,
           onChanged: (value) {
             setState(() {
@@ -51,7 +51,7 @@ class _ShippingScreenState extends State<ShippingScreen>
               }
             }),
             keyboardType: TextInputType.number,
-            cursorColor: Palette.greenColor,
+            cursorColor: Palette.primary,
             onChanged: (value) {
               _productProvider.getFromData(
                 shippingCharge: int.parse(value),
@@ -59,17 +59,17 @@ class _ShippingScreenState extends State<ShippingScreen>
             },
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Shipping charge',
               hintStyle: GoogleFonts.ubuntu(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
           ),

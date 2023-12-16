@@ -26,12 +26,12 @@ class VendorOrderScreen extends StatelessWidget {
         .snapshots();
 
     return Scaffold(
-      backgroundColor: Palette.whiteColor,
+      backgroundColor: Palette.secondary,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Palette.whiteColor,
+        backgroundColor: Palette.secondary,
         iconTheme: const IconThemeData(
-          color: Palette.greenColor,
+          color: Palette.primary,
         ),
         title: Text(
           'My Orders',
@@ -49,7 +49,7 @@ class VendorOrderScreen extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(
-                color: Palette.greenColor,
+                color: Palette.primary,
               ),
             );
           }
@@ -72,8 +72,8 @@ class VendorOrderScreen extends StatelessWidget {
                         });
                       },
                       flex: 2,
-                      backgroundColor: Palette.greenColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.primary,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.gpp_good_rounded,
                       label: 'Accept',
                     ),
@@ -87,8 +87,8 @@ class VendorOrderScreen extends StatelessWidget {
                         });
                       },
                       flex: 2,
-                      backgroundColor: Palette.redColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.red,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.gpp_bad_rounded,
                       label: 'Reject',
                     ),
@@ -98,16 +98,16 @@ class VendorOrderScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Palette.whiteColor,
+                        backgroundColor: Palette.secondary,
                         radius: 19,
                         child: document['accepted'] == true
                             ? const Icon(
                                 Icons.delivery_dining_outlined,
-                                color: Palette.greenColor,
+                                color: Palette.primary,
                               )
                             : const Icon(
                                 Icons.access_time_outlined,
-                                color: Palette.greenColor,
+                                color: Palette.primary,
                               ),
                       ),
                       title: document['accepted'] == true
@@ -118,7 +118,7 @@ class VendorOrderScreen extends StatelessWidget {
                           : Text(
                               'Not Accepted',
                               style: AppTypography.bold12(
-                                color: Palette.redColor,
+                                color: Palette.red,
                               ),
                             ),
                       subtitle: Text(
@@ -131,8 +131,8 @@ class VendorOrderScreen extends StatelessWidget {
                       ),
                     ),
                     ExpansionTile(
-                      collapsedIconColor: Palette.greenColor,
-                      iconColor: Palette.greenColor,
+                      collapsedIconColor: Palette.primary,
+                      iconColor: Palette.primary,
                       title: Text(
                         'Order Details',
                         style: AppTypography.bold16(),
@@ -188,7 +188,7 @@ class VendorOrderScreen extends StatelessWidget {
                       ],
                     ),
                     const Divider(
-                      color: Palette.greenColor,
+                      color: Palette.primary,
                     ),
                   ],
                 ),
@@ -196,11 +196,6 @@ class VendorOrderScreen extends StatelessWidget {
             }).toList(),
           );
         },
-      ),
-      bottomSheet: Container(
-        height: 60,
-        width: double.infinity,
-        color: Palette.greenColor,
       ),
     );
   }

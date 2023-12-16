@@ -112,8 +112,8 @@ class CustomProgressState extends State<CustomProgress>
   progressView() {
     return CustomPaint(
       foregroundPainter: ProgressPainter(
-          defaultCircleColor: Palette.greenwhiteColor,
-          percentageCompletedCircleColor: Palette.greenColor,
+          defaultCircleColor: Palette.greenWhite,
+          percentageCompletedCircleColor: Palette.primary,
           completedPercentage: _percentage!,
           circleWidth: 25.0),
       child: GestureDetector(

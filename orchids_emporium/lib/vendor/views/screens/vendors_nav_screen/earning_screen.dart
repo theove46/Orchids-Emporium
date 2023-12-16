@@ -36,32 +36,30 @@ class EarningScreen extends StatelessWidget {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
 
-          return Scaffold(
-            backgroundColor: Palette.whiteColor,
-            body: StreamBuilder<QuerySnapshot>(
-              stream: _ordersStream,
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return const Text('Something went wrong');
-                }
+          return StreamBuilder<QuerySnapshot>(
+            stream: _ordersStream,
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return const Text('Something went wrong');
+              }
 
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Palette.greenColor,
-                    ),
-                  );
-                }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: Palette.primary,
+                  ),
+                );
+              }
 
-                double totalOrder = 0.0;
-                for (var orderItem in snapshot.data!.docs) {
-                  totalOrder +=
-                      orderItem['quantity'] * orderItem['productPrice'];
-                }
+              double totalOrder = 0.0;
+              for (var orderItem in snapshot.data!.docs) {
+                totalOrder += orderItem['quantity'] * orderItem['productPrice'];
+              }
 
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -77,6 +75,7 @@ class EarningScreen extends StatelessWidget {
                             children: [
                               CircleAvatar(
                                 radius: 30,
+                                backgroundColor: Palette.primary,
                                 backgroundImage:
                                     NetworkImage(data['storeImage']),
                               ),
@@ -85,7 +84,7 @@ class EarningScreen extends StatelessWidget {
                               ),
                               Text(
                                 data['companyName'],
-                                style: AppTypography.bold36(),
+                                style: AppTypography.bold30(),
                               ),
                             ],
                           ),
@@ -141,7 +140,7 @@ class EarningScreen extends StatelessWidget {
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
-                                        Palette.greenColor),
+                                        Palette.primary),
                                 shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -152,7 +151,7 @@ class EarningScreen extends StatelessWidget {
                               child: Text(
                                 'Withdraw',
                                 style: AppTypography.regular16(
-                                  color: Palette.whiteColor,
+                                  color: Palette.secondary,
                                 ),
                               ),
                             ),
@@ -164,20 +163,15 @@ class EarningScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                );
-              },
-            ),
-            bottomSheet: Container(
-              height: 60,
-              width: double.infinity,
-              color: Palette.greenColor,
-            ),
+                ),
+              );
+            },
           );
         }
 
         return const Center(
           child: CircularProgressIndicator(
-            color: Palette.greenColor,
+            color: Palette.primary,
           ),
         );
       },

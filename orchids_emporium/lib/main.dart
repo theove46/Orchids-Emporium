@@ -9,11 +9,11 @@ import 'package:orchids_emporium/core/routes/route_generator.dart';
 import 'package:orchids_emporium/core/routes/routes.dart';
 import 'package:orchids_emporium/provider/cart_provider.dart';
 import 'package:orchids_emporium/provider/product_provider.dart';
-import 'package:orchids_emporium/users/view/auth/sign_in_page/pages/user_sign_in_page.dart';
-import 'package:orchids_emporium/users/view/screens/dashboard/dashboard.dart';
-import 'package:orchids_emporium/vendor/views/auth/vendor_auth.dart';
+import 'package:orchids_emporium/users/view/authentication_user/sign_in_page/pages/user_sign_in_page.dart';
+import 'package:orchids_emporium/users/view/user_dashboard/user_dashboard_page.dart';
+import 'package:orchids_emporium/vendor/views/authentication_vendors/pages/vendor_auth_page.dart';
 import 'package:provider/provider.dart';
-import 'package:orchids_emporium/vendor/views/screens/main_vendor_screen.dart';
+import 'package:orchids_emporium/vendor/views/authentication_vendors/pages/vendor_dashboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,12 +46,12 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual,
-      overlays: [
-        SystemUiOverlay.top,
-      ],
-    );
+    // SystemChrome.setEnabledSystemUIMode(
+    //   SystemUiMode.manual,
+    //   overlays: [
+    //     SystemUiOverlay.top,
+    //   ],
+    // );
     return ScreenUtilInit(
       designSize: const Size(428.0, 926.0),
       minTextAdapt: true,
@@ -63,9 +63,9 @@ class MyApp extends StatelessWidget {
           onGenerateRoute: RouteGenerator.generateRoute,
           initialRoute: Routes.userDashBoard,
           //home: const UserDashBoard(),
-          //home: const MainVendorScreen(),
+          //home: const VendorDashboardPage(),
           //home: const LoginScreen(),
-          //home: const VendorAuthScreen(),
+          //home: const VendorAuthPage(),
         );
       },
     );

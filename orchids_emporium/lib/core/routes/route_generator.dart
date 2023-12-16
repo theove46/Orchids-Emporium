@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:orchids_emporium/core/routes/routes.dart';
-import 'package:orchids_emporium/users/view/auth/sign_in_page/pages/user_sign_in_page.dart';
-import 'package:orchids_emporium/users/view/auth/sign_up_page/pages/user_sign_up_page.dart';
-import 'package:orchids_emporium/users/view/screens/dashboard/dashboard.dart';
+import 'package:orchids_emporium/users/view/authentication_user/sign_in_page/pages/user_sign_in_page.dart';
+import 'package:orchids_emporium/users/view/authentication_user/sign_up_page/pages/user_sign_up_page.dart';
+import 'package:orchids_emporium/users/view/user_dashboard/user_dashboard_page.dart';
 
 class RouteGenerator {
   static get controller => null;
@@ -21,7 +21,7 @@ class RouteGenerator {
 
       case Routes.userDashBoard:
         return MaterialPageRoute(
-          builder: (_) => const UserDashBoard(),
+          builder: (_) => const UserDashBoardPage(),
         );
 
       // case Routes.bkashPhoneNumber:

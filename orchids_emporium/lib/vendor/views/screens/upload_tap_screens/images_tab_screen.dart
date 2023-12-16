@@ -69,7 +69,7 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
                       },
                       icon: const Icon(
                         Icons.add,
-                        color: Palette.greenColor,
+                        color: Palette.primary,
                         size: 32,
                       ),
                     )
@@ -112,7 +112,7 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Palette.greenColor),
+                    MaterialStateProperty.all<Color>(Palette.primary),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -122,7 +122,7 @@ class _ImagesTabScreenState extends State<ImagesTabScreen>
               child: Text(
                 'Upload',
                 style: AppTypography.regular16(
-                  color: Palette.whiteColor,
+                  color: Palette.secondary,
                 ),
               ),
             ),

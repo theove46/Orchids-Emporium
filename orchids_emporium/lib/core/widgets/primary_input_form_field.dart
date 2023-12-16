@@ -361,12 +361,12 @@ class _InputFormFieldState extends State<InputFormField> {
           ? password.hidePasswordIcon ??
               const Icon(
                 Icons.visibility_off,
-                color: Palette.greenColor,
+                color: Palette.primary,
               )
           : password.showPasswordIcon ??
               const Icon(
                 Icons.visibility,
-                color: Palette.greenColor,
+                color: Palette.primary,
               ),
       splashColor: Colors.transparent,
     );

@@ -1,4 +1,4 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: no_leading_underscores_for_local_identifiers, avoid_print
 
 import 'dart:typed_data';
 
@@ -13,8 +13,9 @@ class VendorController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   _uploadVendorImageToStorage(Uint8List? image) async {
-    Reference ref =
-        _storage.ref().child('storeImages').child(_auth.currentUser!.uid);
+    Reference ref = _storage.ref().child('storeImages').child(
+          _auth.currentUser!.uid,
+        );
 
     UploadTask uploadTask = ref.putData(image!);
     TaskSnapshot snapshot = await uploadTask;
@@ -38,9 +39,6 @@ class VendorController {
     String companyName,
     String email,
     String phone,
-    String countryValue,
-    String stateValue,
-    String cityValue,
     String taxRegistered,
     String taxNumber,
     Uint8List? image,
@@ -54,9 +52,6 @@ class VendorController {
           'companyName': companyName,
           'email': email,
           'phone': phone,
-          'countryValue': countryValue,
-          'stateValue': stateValue,
-          'cityValue': cityValue,
           'taxRegistered': taxRegistered,
           'taxNumber': taxNumber,
           'storeImage': storeImage,

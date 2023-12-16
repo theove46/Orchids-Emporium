@@ -22,7 +22,7 @@ class PublishedTabs extends StatelessWidget {
         .snapshots();
 
     return Material(
-      color: Palette.whiteColor,
+      color: Palette.secondary,
       child: StreamBuilder<QuerySnapshot>(
         stream: _vendorProductsStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -33,7 +33,7 @@ class PublishedTabs extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(
-                color: Palette.greenColor,
+                color: Palette.primary,
               ),
             );
           }
@@ -46,7 +46,7 @@ class PublishedTabs extends StatelessWidget {
                   const Icon(
                     Icons.shopping_cart_sharp,
                     size: 80,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                   const SizedBox(
                     height: 16,
@@ -54,7 +54,7 @@ class PublishedTabs extends StatelessWidget {
                   Text(
                     'No published\nproducts',
                     style: AppTypography.bold24(
-                      color: Palette.greenColor,
+                      color: Palette.primary,
                     ),
                   ),
                   const SizedBox(
@@ -85,8 +85,8 @@ class PublishedTabs extends StatelessWidget {
                         });
                       },
                       flex: 2,
-                      backgroundColor: Palette.greenColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.primary,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.remove_shopping_cart_sharp,
                       label: 'Unpublish',
                     ),
@@ -98,8 +98,8 @@ class PublishedTabs extends StatelessWidget {
                             .delete();
                       },
                       flex: 2,
-                      backgroundColor: Palette.redColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.red,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.delete,
                       label: 'Delete',
                     ),

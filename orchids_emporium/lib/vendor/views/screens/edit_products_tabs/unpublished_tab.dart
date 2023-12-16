@@ -21,7 +21,7 @@ class UnPublishedTabs extends StatelessWidget {
         .snapshots();
 
     return Material(
-      color: Palette.whiteColor,
+      color: Palette.secondary,
       child: StreamBuilder<QuerySnapshot>(
         stream: _vendorProductsStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -32,7 +32,7 @@ class UnPublishedTabs extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(
-                color: Palette.greenColor,
+                color: Palette.primary,
               ),
             );
           }
@@ -45,7 +45,7 @@ class UnPublishedTabs extends StatelessWidget {
                   const Icon(
                     Icons.remove_shopping_cart_sharp,
                     size: 80,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                   const SizedBox(
                     height: 16,
@@ -83,8 +83,8 @@ class UnPublishedTabs extends StatelessWidget {
                         });
                       },
                       flex: 2,
-                      backgroundColor: Palette.greenColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.primary,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.shopping_cart_sharp,
                       label: 'Publish',
                     ),
@@ -96,8 +96,8 @@ class UnPublishedTabs extends StatelessWidget {
                             .delete();
                       },
                       flex: 2,
-                      backgroundColor: Palette.redColor,
-                      foregroundColor: Palette.whiteColor,
+                      backgroundColor: Palette.red,
+                      foregroundColor: Palette.secondary,
                       icon: Icons.delete,
                       label: 'Delete',
                     ),

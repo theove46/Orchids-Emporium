@@ -21,7 +21,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s8,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -29,7 +29,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s10,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -37,7 +37,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s12.sp,
       FontWeightManager.light,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -45,7 +45,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s12.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -53,7 +53,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s12.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -61,7 +61,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s12.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -69,7 +69,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s14.sp,
       FontWeightManager.light,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -77,7 +77,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s14.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -85,7 +85,15 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s14.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
+    );
+  }
+
+  static TextStyle bold10({Color? color}) {
+    return _getTextStyle(
+      FontSize.s10.sp,
+      FontWeightManager.bold,
+      color ?? Palette.primary,
     );
   }
 
@@ -93,7 +101,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s14.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -101,7 +109,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s15.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -109,7 +117,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s16.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -117,7 +125,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s16.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -125,7 +133,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s16.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -133,7 +141,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s18.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -141,7 +149,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s18.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -149,7 +157,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s20.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -157,7 +165,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s20.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -165,7 +173,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s22.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -173,7 +181,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s18.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -181,7 +189,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s20.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -189,7 +197,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s22.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -197,7 +205,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s24.sp,
       FontWeightManager.regular,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -205,7 +213,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s24.sp,
       FontWeightManager.semiBold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -213,7 +221,15 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s24.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
+    );
+  }
+
+  static TextStyle bold30({Color? color}) {
+    return _getTextStyle(
+      FontSize.s30.sp,
+      FontWeightManager.bold,
+      color ?? Palette.primary,
     );
   }
 
@@ -221,7 +237,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s50.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 
@@ -229,7 +245,7 @@ class AppTypography {
     return _getTextStyle(
       FontSize.s36.sp,
       FontWeightManager.bold,
-      color ?? Palette.greenColor,
+      color ?? Palette.primary,
     );
   }
 }

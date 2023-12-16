@@ -64,12 +64,12 @@ class _VendorProductDetailsScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.whiteColor,
+      backgroundColor: Palette.secondary,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Palette.whiteColor,
+        backgroundColor: Palette.secondary,
         iconTheme: const IconThemeData(
-          color: Palette.greenColor,
+          color: Palette.primary,
         ),
         title: Text(
           widget.productData['productName'],
@@ -92,25 +92,25 @@ class _VendorProductDetailsScreenState
                     return null;
                   }
                 }),
-                cursorColor: Palette.greenColor,
+                cursorColor: Palette.primary,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: ' Product name ',
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 16,
-                    color: Palette.greyColor,
+                    color: Palette.grey,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 keyboardType: TextInputType.name,
@@ -127,25 +127,25 @@ class _VendorProductDetailsScreenState
                     return null;
                   }
                 }),
-                cursorColor: Palette.greenColor,
+                cursorColor: Palette.primary,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: 'Brand name',
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 16,
-                    color: Palette.greyColor,
+                    color: Palette.grey,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 keyboardType: TextInputType.name,
@@ -165,25 +165,25 @@ class _VendorProductDetailsScreenState
                     return null;
                   }
                 }),
-                cursorColor: Palette.greenColor,
+                cursorColor: Palette.primary,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: 'Quantity',
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 16,
-                    color: Palette.greyColor,
+                    color: Palette.grey,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 keyboardType: TextInputType.number,
@@ -203,25 +203,25 @@ class _VendorProductDetailsScreenState
                     return null;
                   }
                 }),
-                cursorColor: Palette.greenColor,
+                cursorColor: Palette.primary,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: 'Price',
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 16,
-                    color: Palette.greyColor,
+                    color: Palette.grey,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 keyboardType: TextInputType.number,
@@ -240,25 +240,25 @@ class _VendorProductDetailsScreenState
                 }),
                 maxLength: 800,
                 maxLines: 3,
-                cursorColor: Palette.greenColor,
+                cursorColor: Palette.primary,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: 'Description',
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 16,
-                    color: Palette.greyColor,
+                    color: Palette.grey,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 keyboardType: TextInputType.name,
@@ -273,24 +273,24 @@ class _VendorProductDetailsScreenState
                 },
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Palette.greenColor),
+                    borderSide: BorderSide(color: Palette.primary),
                   ),
-                  fillColor: Palette.whiteColor,
+                  fillColor: Palette.secondary,
                   filled: true,
                   labelText: 'Category',
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   labelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                   floatingLabelStyle: GoogleFonts.ubuntu(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Palette.greenColor,
+                    color: Palette.primary,
                   ),
                 ),
                 items: _catagoryList.map<DropdownMenuItem<String>>((e) {
@@ -305,7 +305,7 @@ class _VendorProductDetailsScreenState
         ),
       ),
       bottomSheet: Material(
-        color: Palette.whiteColor,
+        color: Palette.secondary,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: SizedBox(
@@ -335,7 +335,7 @@ class _VendorProductDetailsScreenState
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Palette.greenColor),
+                    MaterialStateProperty.all<Color>(Palette.primary),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
@@ -345,7 +345,7 @@ class _VendorProductDetailsScreenState
               child: Text(
                 'Update product',
                 style: AppTypography.regular16(
-                  color: Palette.whiteColor,
+                  color: Palette.secondary,
                 ),
               ),
             ),

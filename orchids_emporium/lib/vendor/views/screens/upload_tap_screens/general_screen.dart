@@ -67,20 +67,20 @@ class _GeneralScreenState extends State<GeneralScreen>
             onChanged: (value) {
               _productProvider.getFromData(productName: value);
             },
-            cursorColor: Palette.greenColor,
+            cursorColor: Palette.primary,
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Enter product name',
               hintStyle: GoogleFonts.ubuntu(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
           ),
@@ -100,20 +100,20 @@ class _GeneralScreenState extends State<GeneralScreen>
                 productPrice: double.parse(value),
               );
             },
-            cursorColor: Palette.greenColor,
+            cursorColor: Palette.primary,
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Enter product price',
               hintStyle: GoogleFonts.ubuntu(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
           ),
@@ -133,20 +133,20 @@ class _GeneralScreenState extends State<GeneralScreen>
                 quantity: int.parse(value),
               );
             },
-            cursorColor: Palette.greenColor,
+            cursorColor: Palette.primary,
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Enter product quantity',
               hintStyle: GoogleFonts.ubuntu(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
           ),
@@ -154,19 +154,20 @@ class _GeneralScreenState extends State<GeneralScreen>
             height: 10,
           ),
           DropdownButtonFormField(
+            dropdownColor: Palette.secondary,
             decoration: const InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Select category',
               hintStyle: TextStyle(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
             items: _catagoryList.map<DropdownMenuItem<String>>((e) {
@@ -198,20 +199,20 @@ class _GeneralScreenState extends State<GeneralScreen>
               );
             },
             maxLines: 10,
-            cursorColor: Palette.greenColor,
+            cursorColor: Palette.primary,
             decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
               focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Palette.greenColor),
+                borderSide: BorderSide(color: Palette.primary),
               ),
-              fillColor: Palette.whiteColor,
+              fillColor: Palette.secondary,
               filled: true,
               hintText: 'Enter product description',
               hintStyle: GoogleFonts.ubuntu(
                 fontSize: 16,
-                color: Palette.greyColor,
+                color: Palette.grey,
               ),
             ),
           ),

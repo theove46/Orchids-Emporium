@@ -37,12 +37,12 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.whiteColor,
+      backgroundColor: Palette.secondary,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Palette.whiteColor,
+        backgroundColor: Palette.secondary,
         iconTheme: const IconThemeData(
-          color: Palette.greenColor,
+          color: Palette.primary,
         ),
         title: Text(
           'Withdraw',
@@ -67,20 +67,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     }
                   }),
                   keyboardType: TextInputType.number,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Withdrawal Amount',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -99,20 +99,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     name = value;
                   },
                   keyboardType: TextInputType.name,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Vendors Name',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -131,20 +131,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     phone = value;
                   },
                   keyboardType: TextInputType.number,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Phone Number',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -163,20 +163,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     bankName = value;
                   },
                   keyboardType: TextInputType.name,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Bank Name',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -195,20 +195,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     accountName = value;
                   },
                   keyboardType: TextInputType.name,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Account Name',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -227,20 +227,20 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     accountNumber = value;
                   },
                   keyboardType: TextInputType.number,
-                  cursorColor: Palette.greenColor,
+                  cursorColor: Palette.primary,
                   decoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
                     focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Palette.greenColor),
+                      borderSide: BorderSide(color: Palette.primary),
                     ),
-                    fillColor: Palette.whiteColor,
+                    fillColor: Palette.secondary,
                     filled: true,
                     hintText: 'Account Number',
                     hintStyle: GoogleFonts.ubuntu(
                       fontSize: 16,
-                      color: Palette.greyColor,
+                      color: Palette.grey,
                     ),
                   ),
                 ),
@@ -258,7 +258,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     },
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Palette.greenColor),
+                          MaterialStateProperty.all<Color>(Palette.primary),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
@@ -268,7 +268,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                     child: Text(
                       'Withdraw cash',
                       style: AppTypography.regular16(
-                        color: Palette.whiteColor,
+                        color: Palette.secondary,
                       ),
                     ),
                   ),
@@ -288,7 +288,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           contentPadding: const EdgeInsets.all(20.0),
-          backgroundColor: Palette.whiteColor,
+          backgroundColor: Palette.secondary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
@@ -343,7 +343,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
               },
               style: ButtonStyle(
                 backgroundColor:
-                    MaterialStateProperty.all<Color>(Palette.greenColor),
+                    MaterialStateProperty.all<Color>(Palette.primary),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),

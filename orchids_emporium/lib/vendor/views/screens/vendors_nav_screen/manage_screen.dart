@@ -14,9 +14,9 @@ class EditScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Palette.whiteColor,
+          backgroundColor: Palette.secondary,
           iconTheme: const IconThemeData(
-            color: Palette.greenColor,
+            color: Palette.primary,
           ),
           title: Text(
             'Manage Products',
@@ -24,7 +24,7 @@ class EditScreen extends StatelessWidget {
           ),
           centerTitle: true,
           bottom: TabBar(
-            indicatorColor: Palette.greenColor,
+            indicatorColor: Palette.primary,
             tabs: [
               Tab(
                 child: Text(
@@ -46,11 +46,6 @@ class EditScreen extends StatelessWidget {
             PublishedTabs(),
             UnPublishedTabs(),
           ],
-        ),
-        bottomSheet: Container(
-          height: 60,
-          width: double.infinity,
-          color: Palette.greenColor,
         ),
       ),
     );

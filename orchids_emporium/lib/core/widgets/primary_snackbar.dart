@@ -15,10 +15,10 @@ class ShowSnackBarMessage {
         content: Center(
           child: Text(
             message,
-            style: const TextStyle(color: Palette.whiteColor, fontSize: 16),
+            style: const TextStyle(color: Palette.secondary, fontSize: 16),
           ),
         ),
-        backgroundColor: Palette.greenColor,
+        backgroundColor: Palette.primary,
       ),
     );
   }
@@ -33,10 +33,10 @@ class ShowSnackBarMessage {
         content: Center(
           child: Text(
             message,
-            style: const TextStyle(color: Palette.whiteColor, fontSize: 16),
+            style: const TextStyle(color: Palette.secondary, fontSize: 16),
           ),
         ),
-        backgroundColor: Palette.redColor,
+        backgroundColor: Palette.red,
       ),
     );
   }
@@ -53,12 +53,12 @@ class ShowSnackBarMessage {
             Center(
               child: Text(
                 message,
-                style: const TextStyle(color: Palette.whiteColor, fontSize: 16),
+                style: const TextStyle(color: Palette.secondary, fontSize: 16),
               ),
             ),
           ],
         ),
-        backgroundColor: Palette.greenColor,
+        backgroundColor: Palette.primary,
       ),
     );
   }
